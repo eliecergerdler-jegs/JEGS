@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-bg: #050816;
+  --color-brand-bg2: #081225;
+  --color-brand-blue: #1E7BFF;
+  --color-brand-green: #B8F12B;
+  --color-brand-white: #F4F8FF;
+  --color-brand-muted: #9CAAC4;
+  
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-white);
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
