@@ -201,7 +201,7 @@ function Hero() {
             <Sparkles size={14} className="text-brand-green" />
             Web · Redes · Video
           </div>
-          <h1 className="max-w-4xl text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.5rem] font-black leading-[1.03] tracking-tight text-brand-white">
+          <h1 className="max-w-4xl text-[1.85rem] min-[360px]:text-[2.15rem] min-[400px]:text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.5rem] font-black leading-[1.03] tracking-tight text-brand-white">
             Fuerza digital para negocios que quieren <span className="text-brand-green">verse profesionales y conseguir clientes.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-brand-muted/95 md:text-xl">
@@ -218,7 +218,7 @@ function Hero() {
           </div>
           <div className="mt-12 grid max-w-2xl grid-cols-2 gap-3 md:grid-cols-4">
             {["Responsive", "WhatsApp", "SEO básico", "Diseño premium"].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-3 text-sm font-semibold text-brand-white backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] transition hover:-translate-y-1 hover:border-brand-blue/30 hover:bg-white/10">
+              <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.035] px-3 py-2.5 text-xs min-[390px]:text-sm min-[390px]:px-4 min-[390px]:py-3 font-semibold text-brand-white backdrop-blur-sm shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)] transition hover:-translate-y-1 hover:border-brand-blue/30 hover:bg-white/10">
                 {item}
               </div>
             ))}

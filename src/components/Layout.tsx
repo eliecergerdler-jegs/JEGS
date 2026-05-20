@@ -15,7 +15,7 @@ export function Layout() {
       <CustomCursor />
       <Glow />
       <Header />
-      <main className="relative z-10">
+      <main className="relative z-10 w-full overflow-x-hidden">
         <AnimatePresence mode="wait">
           <PageTransition key={location.pathname}>
             <Outlet />

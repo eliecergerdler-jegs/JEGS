@@ -4,7 +4,7 @@ import { Shield, Layout, Film, Cpu } from "lucide-react";
 
 export function BullHeroMark() {
   return (
-    <div className="relative flex items-center justify-center p-4">
+    <div className="relative flex w-full items-center justify-center p-4 overflow-hidden">
       {/* Background Glowing Orb (Breathing Effect) */}
       <motion.div
         className="absolute h-80 w-80 rounded-full bg-brand-blue/10 blur-3xl"
