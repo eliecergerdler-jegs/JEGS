@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { WhatsAppButton } from "./WhatsAppButton";
-import logoSvg from "../assets/Imagenes/JEGS_Logo_SVG1.svg";
+import logoSvg from "../assets/Imagenes/jegs-bull-light.svg";
 
 const pages = [
   { path: "/", label: "Inicio" },

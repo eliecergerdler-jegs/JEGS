@@ -14,7 +14,7 @@ export function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
       </div>
       <div className="relative mx-auto max-w-5xl text-center z-10">
         <p className="mb-4 text-xs font-black uppercase tracking-[.32em] text-brand-green">{eyebrow}</p>
-        <h1 className="text-4xl font-black leading-tight tracking-tight text-brand-white md:text-6xl">{title}</h1>
+        <h1 className="text-3xl font-black leading-tight tracking-tight text-brand-white md:text-5xl">{title}</h1>
         <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-brand-muted">{subtitle}</p>
       </div>
     </section>
