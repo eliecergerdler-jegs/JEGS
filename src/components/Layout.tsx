@@ -72,9 +72,9 @@ export function Layout() {
         target="_blank" 
         rel="noopener noreferrer"
         aria-label="Hablar por WhatsApp"
-        className="fixed bottom-5 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-brand-green px-4 text-sm font-black text-brand-bg shadow-[0_0_28px_rgba(184,241,43,.35)] transition active:scale-95 hover:scale-[1.02] md:hidden"
+        className="group fixed bottom-5 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-brand-green px-4 text-sm font-black text-brand-bg shadow-[0_0_28px_rgba(184,241,43,.35)] transition-all duration-300 ease-out active:scale-95 hover:scale-[1.03] hover:shadow-[0_0_32px_rgba(184,241,43,.5)] md:hidden"
       >
-        <WhatsAppIcon className="h-5 w-5" />
+        <WhatsAppIcon className="h-5 w-5 transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-90" />
         <span>WhatsApp</span>
       </a>
 
