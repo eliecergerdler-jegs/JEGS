@@ -1,27 +1,26 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Glow } from "./Glow";
-import { CustomCursor } from "./CustomCursor";
-import { AnimatePresence } from "framer-motion";
-import { PageTransition } from "./PageTransition";
 import { ScrollToTop } from "./ScrollToTop";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { Suspense } from "react";
 
 export function Layout() {
-  const location = useLocation();
-  
   return (
     <div className="relative min-h-screen selection:bg-brand-green/30 selection:text-brand-bg">
-      <CustomCursor />
       <Glow />
       <Header />
       <main className="relative z-10 w-full overflow-x-hidden">
-        <AnimatePresence mode="wait">
-          <PageTransition key={location.pathname}>
-            <Outlet />
-          </PageTransition>
-        </AnimatePresence>
+        <Suspense fallback={
+          <div className="flex min-h-[50vh] items-center justify-center bg-transparent py-20">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#B8F12B] border-t-transparent"></div>
+          </div>
+        }>
+          <Outlet />
+        </Suspense>
       </main>
+
+
       
       <footer className="border-t border-white/5 bg-brand-bg2/40 px-5 py-12 text-sm text-brand-muted relative z-10">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
@@ -33,7 +32,7 @@ export function Layout() {
           </div>
           
           <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-white/40">Contacto y Redes</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-brand-white/60">Contacto y Redes</p>
             <div className="flex flex-col sm:flex-row md:flex-col items-center md:items-end gap-5 sm:gap-6 md:gap-3 text-[0.95rem] md:text-sm font-bold md:font-medium">
               <a 
                 href="https://www.instagram.com/jegs.digital/" 
@@ -62,7 +61,7 @@ export function Layout() {
             </div>
           </div>
         </div>
-        <div className="mx-auto max-w-7xl mt-8 pt-8 border-t border-white/5 text-center text-xs text-brand-muted/50">
+        <div className="mx-auto max-w-7xl mt-8 pt-8 border-t border-white/5 text-center text-xs text-brand-white/60">
           © {new Date().getFullYear()} JEGS Digital. Todos los derechos reservados.
         </div>
       </footer>

@@ -1,9 +1,14 @@
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
-import { Services } from "./pages/Services";
-import { DetailPage } from "./pages/DetailPage";
-import { AboutPage, ContactPage, PortfolioPage } from "./pages/OtherPages";
+
+// Lazy loaded page components
+const Services = lazy(() => import("./pages/Services").then(m => ({ default: m.Services })));
+const DetailPage = lazy(() => import("./pages/DetailPage").then(m => ({ default: m.DetailPage })));
+const PortfolioPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.PortfolioPage })));
+const AboutPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.ContactPage })));
 
 function App() {
   return (
@@ -23,5 +28,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;

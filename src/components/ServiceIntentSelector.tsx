@@ -74,6 +74,8 @@ export function ServiceIntentSelector() {
               <button
                 key={opt.id}
                 onClick={() => setSelected(opt.id)}
+                aria-pressed={isSelected}
+                aria-label={`Seleccionar servicio: ${opt.title}`}
                 className={`group relative flex flex-col justify-between rounded-2xl border p-5 text-left transition-all duration-300 cursor-pointer ${
                   isSelected
                     ? "border-brand-green bg-white/[0.05] shadow-[0_0_24px_rgba(184,241,43,0.1)] scale-[1.01]"
