@@ -144,6 +144,10 @@ export function BullHeroMark() {
           <img
             src={bullLight}
             alt="JEGS Digital"
+            width="320"
+            height="320"
+            fetchPriority="high"
+            decoding="async"
             className="h-full w-full object-contain drop-shadow-[0_0_24px_rgba(184,241,43,0.25)] transition-all hover:drop-shadow-[0_0_32px_rgba(30,123,255,0.45)]"
           />
         </motion.div>
