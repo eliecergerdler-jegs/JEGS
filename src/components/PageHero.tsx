@@ -1,4 +1,10 @@
-export function PageHero({ eyebrow, title, subtitle }: any) {
+interface PageHeroProps {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+}
+
+export function PageHero({ eyebrow, title, subtitle }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden px-5 py-20 md:py-28">
       <div className="absolute inset-0 z-0">

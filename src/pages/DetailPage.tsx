@@ -60,7 +60,7 @@ export function DetailPage({ type }: { type: 'web' | 'social' | 'video' }) {
               animate={{ boxShadow: ['0 0 20px rgba(184,241,43,0.4)', '0 0 40px rgba(184,241,43,0.8)', '0 0 20px rgba(184,241,43,0.4)'] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <WhatsAppButton>Cotizar este servicio</WhatsAppButton>
+              <WhatsAppButton message={content.message}>Cotizar este servicio</WhatsAppButton>
             </motion.div>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -74,7 +74,7 @@ export function DetailPage({ type }: { type: 'web' | 'social' | 'video' }) {
   );
 }
 
-function ListBlock({ title, items }: any) {
+function ListBlock({ title, items }: { title: string; items: string[] }) {
   const container = {
     hidden: { opacity: 0 },
     show: {

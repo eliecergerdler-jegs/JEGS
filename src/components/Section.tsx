@@ -1,6 +1,14 @@
 import { ScrollReveal } from "./ScrollReveal";
 
-export function Section({ eyebrow, title, subtitle, children, className = "" }: any) {
+interface SectionProps {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export function Section({ eyebrow, title, subtitle, children, className = "" }: SectionProps) {
   return (
     <section className={`relative mx-auto max-w-7xl px-5 py-16 md:py-24 ${className}`}>
       <ScrollReveal direction="up" className="w-full h-full">

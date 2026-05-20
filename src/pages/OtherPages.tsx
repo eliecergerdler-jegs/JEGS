@@ -27,11 +27,11 @@ export function AboutPage() {
       />
       <Section>
         <div className="grid gap-6 md:grid-cols-3">
-          {[
+          {([
             [ShieldCheck, "Claridad", "Diseño y mensajes fáciles de entender para que el cliente sepa qué haces y cómo contactarte."],
             [Rocket, "Velocidad", "Procesos prácticos para avanzar sin vueltas eternas ni complicaciones técnicas innecesarias."],
             [Sparkles, "Estética potente", "Una línea visual moderna, tecnológica y diferenciada sin sacrificar legibilidad ni conversión."],
-          ].map(([Icon, title, text]: any) => (
+          ] as const).map(([Icon, title, text]) => (
             <div key={title} className="rounded-[2rem] border border-white/10 bg-white/[.035] p-7">
               <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green">
                 <Icon size={24} />
@@ -67,7 +67,7 @@ export function ContactPage() {
       />
       <Section>
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          <ContactCard icon={MessageCircle} title="WhatsApp" text="+58 412 573 8257" cta="Hablar ahora" href="https://wa.me/message/VDG6H2LM6E5QD1" />
+          <ContactCard icon={MessageCircle} title="WhatsApp" text="+58 412 573 8257" cta="Hablar ahora" href="https://wa.me/584125738257?text=Hola%20JEGS%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios%20digitales." />
           <ContactCard icon={Mail} title="Email" text="ejgerdler@gmail.com" cta="Enviar correo" href="mailto:ejgerdler@gmail.com" />
           <ContactCard icon={InstagramIcon} title="Instagram" text="@jegs.digital" cta="Ver perfil" href="https://www.instagram.com/jegs.digital/" />
         </div>
@@ -78,7 +78,15 @@ export function ContactPage() {
 
 import { motion } from "framer-motion";
 
-function ContactCard({ icon: Icon, title, text, cta, href }: any) {
+interface ContactCardProps {
+  icon: React.ComponentType<{ size?: number }>;
+  title: string;
+  text: string;
+  cta: string;
+  href: string;
+}
+
+function ContactCard({ icon: Icon, title, text, cta, href }: ContactCardProps) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="group rounded-[2rem] border border-white/10 bg-white/[.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[.055]">
       <motion.div 

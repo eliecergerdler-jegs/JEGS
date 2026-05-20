@@ -7,10 +7,6 @@ import logoSvg from "../assets/Imagenes/JEGS_Logo_SVG1.svg";
 const pages = [
   { path: "/", label: "Inicio" },
   { path: "/servicios", label: "Servicios" },
-  { path: "/web", label: "Diseño Web" },
-  { path: "/redes", label: "Redes Sociales" },
-  { path: "/video", label: "Video" },
-  { path: "/portafolio", label: "Portafolio" },
   { path: "/sobre-jegs", label: "Sobre JEGS" },
   { path: "/contacto", label: "Contacto" },
 ];
