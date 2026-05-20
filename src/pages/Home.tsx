@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, MonitorSmartphone, Images, Video, Sparkles, Shield, Compass, Activity, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { WhatsAppButton } from "../components/WhatsAppButton";
@@ -179,24 +178,12 @@ function Hero() {
   return (
     <div className="relative overflow-hidden px-5 py-16 md:py-24 lg:py-28">
       {/* Background Particles for Parallax Effect */}
-      <motion.div 
-        className="absolute top-1/4 left-1/4 h-3 w-3 rounded-full bg-brand-green/40 blur-[1px]"
-        animate={{ y: [0, -30, 0], x: [0, 20, 0], opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div 
-        className="absolute top-1/3 right-1/4 h-2 w-2 rounded-full bg-brand-blue/60 blur-[1px]"
-        animate={{ y: [0, 40, 0], x: [0, -15, 0], opacity: [0.4, 0.8, 0.4] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      />
-      <motion.div 
-        className="absolute bottom-1/4 left-1/3 h-4 w-4 rounded-full bg-brand-green/20 blur-[2px]"
-        animate={{ y: [0, -20, 0], x: [0, -30, 0], opacity: [0.3, 0.7, 0.3] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
+      <div className="absolute top-1/4 left-1/4 h-3 w-3 rounded-full bg-brand-green/40 blur-[1px] animate-jegs-particle-1" />
+      <div className="absolute top-1/3 right-1/4 h-2 w-2 rounded-full bg-brand-blue/60 blur-[1px] animate-jegs-particle-2" />
+      <div className="absolute bottom-1/4 left-1/3 h-4 w-4 rounded-full bg-brand-green/20 blur-[2px] animate-jegs-particle-3" />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1fr]">
-        <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
+        <div>
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-brand-muted">
             <Sparkles size={14} className="text-brand-green" />
             Web · Redes · Video
@@ -223,7 +210,8 @@ function Hero() {
               </div>
             ))}
           </div>
-        </motion.div>
+        </div>
+
 
         <BullHeroMark />
       </div>
@@ -273,10 +261,9 @@ export function PortfolioPreview() {
     <Section eyebrow="Portafolio" title="Mira cómo puede verse tu marca en digital." subtitle="Pocos proyectos, bien presentados. Esa es la jugada correcta al inicio: calidad visual antes que cantidad.">
       <div className="grid gap-6 md:grid-cols-3">
         {portfolio.map((item) => (
-          <motion.div 
+          <div 
             key={item.title} 
-            className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] transition-all hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-blue/20"
-            whileHover={{ scale: 1.02 }}
+            className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-blue/20"
           >
             <div className="h-48 relative overflow-hidden bg-[radial-gradient(circle_at_30%_20%,rgba(184,241,43,.22),transparent_30%),radial-gradient(circle_at_75%_70%,rgba(30,123,255,.32),transparent_38%),#081225]">
                <div className="absolute inset-0 bg-brand-bg/10 backdrop-blur-sm transition-all group-hover:backdrop-blur-none" />
@@ -286,7 +273,7 @@ export function PortfolioPreview() {
               <h3 className="mt-3 text-xl font-black text-brand-white">{item.title}</h3>
               <p className="mt-2 text-sm sm:text-base leading-relaxed text-brand-muted/95">{item.desc}</p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </Section>

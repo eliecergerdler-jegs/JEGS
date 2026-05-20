@@ -1,34 +1,25 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Header } from "./Header";
 import { Glow } from "./Glow";
-import { CustomCursor } from "./CustomCursor";
-import { AnimatePresence } from "framer-motion";
-import { PageTransition } from "./PageTransition";
 import { ScrollToTop } from "./ScrollToTop";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Suspense } from "react";
 
 export function Layout() {
-  const location = useLocation();
-  
   return (
     <div className="relative min-h-screen selection:bg-brand-green/30 selection:text-brand-bg">
-      <CustomCursor />
       <Glow />
       <Header />
       <main className="relative z-10 w-full overflow-x-hidden">
-        <AnimatePresence mode="wait">
-          <PageTransition key={location.pathname}>
-            <Suspense fallback={
-              <div className="flex min-h-[50vh] items-center justify-center bg-transparent py-20">
-                <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#B8F12B] border-t-transparent"></div>
-              </div>
-            }>
-              <Outlet />
-            </Suspense>
-          </PageTransition>
-        </AnimatePresence>
+        <Suspense fallback={
+          <div className="flex min-h-[50vh] items-center justify-center bg-transparent py-20">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#B8F12B] border-t-transparent"></div>
+          </div>
+        }>
+          <Outlet />
+        </Suspense>
       </main>
+
 
       
       <footer className="border-t border-white/5 bg-brand-bg2/40 px-5 py-12 text-sm text-brand-muted relative z-10">

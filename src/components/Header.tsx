@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { WhatsAppButton } from "./WhatsAppButton";
-import logoSvg from "../assets/Imagenes/jegs-bull-light.svg";
+import logoSvg from "../assets/Imagenes/jegs-bull-light.webp";
 
 const pages = [
   { path: "/", label: "Inicio" },
@@ -20,7 +20,14 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
         <Link to="/" className="group flex items-center gap-3">
           <div className="flex items-center justify-center">
-            <img src={logoSvg} alt="JEGS Digital" width="32" height="40" decoding="async" className="h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(30,123,255,.4)]" />
+            <img 
+              src={logoSvg} 
+              alt="JEGS Digital" 
+              width="34" 
+              height="40" 
+              decoding="async" 
+              className="h-10 w-auto object-contain drop-shadow-[0_0_12px_rgba(30,123,255,.4)]" 
+            />
           </div>
           <div className="text-left leading-tight">
             <p className="text-base font-black tracking-wider text-brand-white">JEGS</p>
@@ -55,6 +62,8 @@ export function Header() {
           className="rounded-xl border border-white/10 p-2 text-brand-white lg:hidden" 
           onClick={() => setOpen(!open)}
           aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+          aria-expanded={open}
+          aria-controls="mobile-navigation"
         >
           {open ? <X /> : <Menu />}
         </button>
@@ -62,7 +71,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="border-t border-white/10 bg-brand-bg px-5 py-4 lg:hidden">
+        <div id="mobile-navigation" className="border-t border-white/10 bg-brand-bg px-5 py-4 lg:hidden">
           <div className="grid gap-2">
             {pages.map((p) => (
               <Link 
