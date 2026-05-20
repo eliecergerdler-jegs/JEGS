@@ -33,7 +33,7 @@ export function Layout() {
           </div>
           
           <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-white/40">Contacto y Redes</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-brand-white/60">Contacto y Redes</p>
             <div className="flex flex-col sm:flex-row md:flex-col items-center md:items-end gap-5 sm:gap-6 md:gap-3 text-[0.95rem] md:text-sm font-bold md:font-medium">
               <a 
                 href="https://www.instagram.com/jegs.digital/" 
@@ -62,7 +62,7 @@ export function Layout() {
             </div>
           </div>
         </div>
-        <div className="mx-auto max-w-7xl mt-8 pt-8 border-t border-white/5 text-center text-xs text-brand-muted/50">
+        <div className="mx-auto max-w-7xl mt-8 pt-8 border-t border-white/5 text-center text-xs text-brand-white/60">
           © {new Date().getFullYear()} JEGS Digital. Todos los derechos reservados.
         </div>
       </footer>
