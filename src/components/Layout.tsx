@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "./PageTransition";
 import { ScrollToTop } from "./ScrollToTop";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { Suspense } from "react";
 
 export function Layout() {
   const location = useLocation();
@@ -18,10 +19,17 @@ export function Layout() {
       <main className="relative z-10 w-full overflow-x-hidden">
         <AnimatePresence mode="wait">
           <PageTransition key={location.pathname}>
-            <Outlet />
+            <Suspense fallback={
+              <div className="flex min-h-[50vh] items-center justify-center bg-transparent py-20">
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-[#B8F12B] border-t-transparent"></div>
+              </div>
+            }>
+              <Outlet />
+            </Suspense>
           </PageTransition>
         </AnimatePresence>
       </main>
+
       
       <footer className="border-t border-white/5 bg-brand-bg2/40 px-5 py-12 text-sm text-brand-muted relative z-10">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
