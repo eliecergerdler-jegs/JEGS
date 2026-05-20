@@ -5,6 +5,7 @@ import { Smartphone } from "lucide-react";
 import { CustomCursor } from "./CustomCursor";
 import { AnimatePresence } from "framer-motion";
 import { PageTransition } from "./PageTransition";
+import { ScrollToTop } from "./ScrollToTop";
 
 export function Layout() {
   const whatsappUrl = "https://wa.me/message/VDG6H2LM6E5QD1";
@@ -43,7 +44,10 @@ export function Layout() {
       >
         <Smartphone size={24} />
       </a>
+
+      <ScrollToTop />
     </div>
   );
 }
+
 
