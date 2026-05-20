@@ -2,14 +2,16 @@ import { ShieldCheck, Rocket, Sparkles, MessageCircle, Mail, ArrowRight } from "
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
 import { FinalCta, PortfolioPreview } from "./Home";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function PortfolioPage() {
+  const { language } = useLanguage();
   return (
     <>
       <PageHero
-        eyebrow="Portafolio"
-        title="Proyectos visuales para marcas que quieren destacar."
-        subtitle="Una muestra de websites, artes para redes, videos y piezas digitales creadas para comunicar con más claridad y presencia."
+        eyebrow={language === "es" ? "Portafolio" : "Portfolio"}
+        title={language === "es" ? "Proyectos visuales para marcas que quieren destacar." : "Visual projects for brands that want to stand out."}
+        subtitle={language === "es" ? "Una muestra de websites, artes para redes, videos y piezas digitales creadas para comunicar con más claridad y presencia." : "A display of websites, social graphics, videos, and digital assets designed for ultimate presence and clear communication."}
       />
       <PortfolioPreview />
       <FinalCta />
@@ -18,21 +20,25 @@ export function PortfolioPage() {
 }
 
 export function AboutPage() {
+  const { t } = useLanguage();
+
+  const cards = [
+    { icon: ShieldCheck, title: t.about.cards.clarity.title, text: t.about.cards.clarity.text },
+    { icon: Rocket, title: t.about.cards.speed.title, text: t.about.cards.speed.text },
+    { icon: Sparkles, title: t.about.cards.aesthetic.title, text: t.about.cards.aesthetic.text }
+  ];
+
   return (
     <>
       <PageHero
-        eyebrow="Sobre JEGS"
-        title="Diseño digital con estrategia, estética y enfoque comercial."
-        subtitle="JEGS Digital ayuda a emprendedores, negocios, marcas personales y empresas a construir una presencia digital más seria, moderna y efectiva."
+        eyebrow={t.about.eyebrow}
+        title={t.about.title}
+        subtitle={t.about.subtitle}
       />
       <Section>
         <div className="grid gap-6 md:grid-cols-3">
-          {([
-            [ShieldCheck, "Claridad", "Diseño y mensajes fáciles de entender para que el cliente sepa qué haces y cómo contactarte."],
-            [Rocket, "Velocidad", "Procesos prácticos para avanzar sin vueltas eternas ni complicaciones técnicas innecesarias."],
-            [Sparkles, "Estética potente", "Una línea visual moderna, tecnológica y diferenciada sin sacrificar legibilidad ni conversión."],
-          ] as const).map(([Icon, title, text]) => (
-            <div key={title} className="rounded-[2rem] border border-white/10 bg-white/[.035] p-7">
+          {cards.map(({ icon: Icon, title, text }) => (
+            <div key={title} className="rounded-[2rem] border border-white/10 bg-white/[0.035] p-7">
               <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green">
                 <Icon size={24} />
               </div>
@@ -58,18 +64,39 @@ function InstagramIcon({ size = 24 }) {
 }
 
 export function ContactPage() {
+  const { t } = useLanguage();
+  const whatsappMessage = encodeURIComponent(t.home.finalCta.message);
+
   return (
     <>
       <PageHero
-        eyebrow="Contacto"
-        title="Cuéntanos qué necesitas y te orientamos por WhatsApp."
-        subtitle="Puedes escribir para cotizar una web, artes para redes, edición de videos o una solución completa para mejorar tu presencia digital."
+        eyebrow={t.contact.eyebrow}
+        title={t.contact.title}
+        subtitle={t.contact.subtitle}
       />
       <Section>
         <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          <ContactCard icon={MessageCircle} title="WhatsApp" text="+58 412 573 8257" cta="Hablar ahora" href="https://wa.me/584125738257?text=Hola%20JEGS%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios%20digitales." />
-          <ContactCard icon={Mail} title="Email" text="ejgerdler@gmail.com" cta="Enviar correo" href="mailto:ejgerdler@gmail.com" />
-          <ContactCard icon={InstagramIcon} title="Instagram" text="@jegs.digital" cta="Ver perfil" href="https://www.instagram.com/jegs.digital/" />
+          <ContactCard 
+            icon={MessageCircle} 
+            title={t.contact.cards.whatsapp.title} 
+            text={t.contact.cards.whatsapp.text} 
+            cta={t.contact.cards.whatsapp.cta} 
+            href={`https://wa.me/584125738257?text=${whatsappMessage}`} 
+          />
+          <ContactCard 
+            icon={Mail} 
+            title={t.contact.cards.email.title} 
+            text={t.contact.cards.email.text} 
+            cta={t.contact.cards.email.cta} 
+            href={`mailto:${t.contact.cards.email.text}`} 
+          />
+          <ContactCard 
+            icon={InstagramIcon} 
+            title={t.contact.cards.instagram.title} 
+            text={t.contact.cards.instagram.text} 
+            cta={t.contact.cards.instagram.cta} 
+            href="https://www.instagram.com/jegs.digital/" 
+          />
         </div>
       </Section>
     </>
@@ -88,7 +115,7 @@ interface ContactCardProps {
 
 function ContactCard({ icon: Icon, title, text, cta, href }: ContactCardProps) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="group rounded-[2rem] border border-white/10 bg-white/[.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[.055]">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[0.055]">
       <motion.div 
         className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green shadow-lg"
         whileHover={{ rotateY: 180, scale: 1.1 }}

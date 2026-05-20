@@ -4,8 +4,12 @@ import { Glow } from "./Glow";
 import { ScrollToTop } from "./ScrollToTop";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Suspense } from "react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function Layout() {
+  const { t } = useLanguage();
+  const whatsappMessage = encodeURIComponent(t.home.finalCta.message);
+
   return (
     <div className="relative min-h-screen selection:bg-brand-green/30 selection:text-brand-bg">
       <Glow />
@@ -20,19 +24,17 @@ export function Layout() {
         </Suspense>
       </main>
 
-
-      
       <footer className="border-t border-white/5 bg-brand-bg2/40 px-5 py-12 text-sm text-brand-muted relative z-10">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
           <div className="text-center md:text-left max-w-md">
             <p className="text-lg font-black tracking-tight text-brand-white">JEGS Digital</p>
             <p className="mt-3 text-sm leading-relaxed text-brand-muted/90">
-              Websites, contenido visual y videos para marcas que quieren verse más profesionales y captar clientes.
+              {t.footer.logoDesc}
             </p>
           </div>
           
           <div className="flex flex-col items-center md:items-end gap-3 shrink-0">
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-white/60">Contacto y Redes</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-brand-white/60">{t.footer.contactTitle}</p>
             <div className="flex flex-col sm:flex-row md:flex-col items-center md:items-end gap-5 sm:gap-6 md:gap-3 text-[0.95rem] md:text-sm font-bold md:font-medium">
               <a 
                 href="https://www.instagram.com/jegs.digital/" 
@@ -44,7 +46,7 @@ export function Layout() {
               </a>
               <span className="hidden sm:inline md:hidden text-white/10">|</span>
               <a 
-                href="https://wa.me/584125738257" 
+                href={`https://wa.me/584125738257?text=${whatsappMessage}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-brand-green hover:text-brand-green/80 transition-colors"
@@ -62,24 +64,22 @@ export function Layout() {
           </div>
         </div>
         <div className="mx-auto max-w-7xl mt-8 pt-8 border-t border-white/5 text-center text-xs text-brand-white/60">
-          © {new Date().getFullYear()} JEGS Digital. Todos los derechos reservados.
+          © {new Date().getFullYear()} JEGS Digital. {t.footer.rights}
         </div>
       </footer>
 
       <a
-        href="https://wa.me/584125738257?text=Hola%20JEGS%2C%20quiero%20informaci%C3%B3n%20sobre%20tus%20servicios%20digitales."
+        href={`https://wa.me/584125738257?text=${whatsappMessage}`}
         target="_blank" 
         rel="noopener noreferrer"
-        aria-label="Hablar por WhatsApp"
+        aria-label={t.common.whatsappFloatLabel}
         className="group fixed bottom-5 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-brand-green px-4 text-sm font-black text-brand-bg shadow-[0_0_28px_rgba(184,241,43,.35)] transition-all duration-300 ease-out active:scale-95 hover:scale-[1.03] hover:shadow-[0_0_32px_rgba(184,241,43,.5)] md:hidden"
       >
         <WhatsAppIcon className="h-5 w-5 transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-90" />
-        <span>WhatsApp</span>
+        <span>{t.common.whatsappFloat}</span>
       </a>
 
       <ScrollToTop />
     </div>
   );
 }
-
-
