@@ -2,45 +2,48 @@ import { MonitorSmartphone, Images, Video } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
 import { FinalCta, ServiceCard } from "./Home";
-
-const services = [
-  {
-    icon: MonitorSmartphone,
-    title: "Diseño Web Profesional",
-    text: "Landing pages, webs corporativas y sitios responsive para presentar tu negocio y captar clientes.",
-    cta: "Cotizar web",
-    page: "/web",
-    message: "Hola JEGS, quiero cotizar una página web para mi negocio.",
-  },
-  {
-    icon: Images,
-    title: "Artes para Redes Sociales",
-    text: "Posts, historias, carruseles y promociones para que tu marca mantenga una imagen constante y profesional.",
-    cta: "Cotizar artes",
-    page: "/redes",
-    message: "Hola JEGS, quiero cotizar artes para redes sociales.",
-  },
-  {
-    icon: Video,
-    title: "Edición de Videos para Redes",
-    text: "Reels, shorts, subtítulos y videos dinámicos para comunicar mejor y captar atención.",
-    cta: "Cotizar video",
-    page: "/video",
-    message: "Hola JEGS, quiero cotizar edición de videos para redes.",
-  },
-];
+import { useLanguage } from "../contexts/LanguageContext";
 
 export function Services() {
+  const { t } = useLanguage();
+
+  const servicesData = [
+    {
+      icon: MonitorSmartphone,
+      title: t.home.solution.cards.web.title,
+      text: t.home.solution.cards.web.text,
+      cta: t.home.solution.cards.web.cta,
+      page: "/web",
+      message: t.detail.web.message,
+    },
+    {
+      icon: Images,
+      title: t.home.solution.cards.artes.title,
+      text: t.home.solution.cards.artes.text,
+      cta: t.home.solution.cards.artes.cta,
+      page: "/redes",
+      message: t.detail.social.message,
+    },
+    {
+      icon: Video,
+      title: t.home.solution.cards.video.title,
+      text: t.home.solution.cards.video.text,
+      cta: t.home.solution.cards.video.cta,
+      page: "/video",
+      message: t.detail.video.message,
+    },
+  ];
+
   return (
     <>
       <PageHero
-        eyebrow="Servicios"
-        title="Servicios digitales para que tu negocio se vea, conecte y venda mejor."
-        subtitle="Websites, piezas para redes y videos cortos con estética moderna, clara y orientada a captar clientes."
+        eyebrow={t.services.eyebrow}
+        title={t.services.title}
+        subtitle={t.services.subtitle}
       />
       <Section>
         <div className="grid gap-6 lg:grid-cols-3">
-          {services.map((service) => (
+          {servicesData.map((service) => (
             <ServiceCard key={service.title} service={service} />
           ))}
         </div>
@@ -49,3 +52,4 @@ export function Services() {
     </>
   );
 }
+

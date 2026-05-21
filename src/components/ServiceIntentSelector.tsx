@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { MonitorSmartphone, Images, Video, Sparkles, Check } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface OptionType {
   id: string;
@@ -11,39 +12,40 @@ interface OptionType {
   message: string;
 }
 
-const options: OptionType[] = [
-  {
-    id: "web",
-    icon: MonitorSmartphone,
-    title: "Web profesional",
-    desc: "Diseño moderno y listo para captar clientes.",
-    message: "Hola JEGS, quiero cotizar una web profesional para mi negocio.",
-  },
-  {
-    id: "artes",
-    icon: Images,
-    title: "Artes para redes",
-    desc: "Contenido visual alineado a tu marca.",
-    message: "Hola JEGS, quiero cotizar artes para redes sociales.",
-  },
-  {
-    id: "videos",
-    icon: Video,
-    title: "Videos para redes",
-    desc: "Edición dinámica, reels y shorts con gancho.",
-    message: "Hola JEGS, quiero cotizar edición de videos para redes.",
-  },
-  {
-    id: "completa",
-    icon: Sparkles,
-    title: "Presencia completa",
-    desc: "Web, piezas visuales y video estratégico.",
-    message: "Hola JEGS, quiero mejorar la presencia digital de mi negocio. Me interesa una solución completa.",
-  },
-];
-
 export function ServiceIntentSelector() {
+  const { t } = useLanguage();
   const [selected, setSelected] = useState<string>("web");
+
+  const options: OptionType[] = [
+    {
+      id: "web",
+      icon: MonitorSmartphone,
+      title: t.home.selector.options.web.title,
+      desc: t.home.selector.options.web.desc,
+      message: t.home.selector.options.web.message,
+    },
+    {
+      id: "artes",
+      icon: Images,
+      title: t.home.selector.options.artes.title,
+      desc: t.home.selector.options.artes.desc,
+      message: t.home.selector.options.artes.message,
+    },
+    {
+      id: "videos",
+      icon: Video,
+      title: t.home.selector.options.videos.title,
+      desc: t.home.selector.options.videos.desc,
+      message: t.home.selector.options.videos.message,
+    },
+    {
+      id: "completa",
+      icon: Sparkles,
+      title: t.home.selector.options.completa.title,
+      desc: t.home.selector.options.completa.desc,
+      message: t.home.selector.options.completa.message,
+    },
+  ];
 
   const activeOption = options.find((opt) => opt.id === selected) || options[0];
 
@@ -55,13 +57,13 @@ export function ServiceIntentSelector() {
 
       <div className="relative mx-auto max-w-5xl text-center">
         <p className="text-xs font-black uppercase tracking-[0.32em] text-brand-green">
-          Elige tu impulso digital
+          {t.home.selector.eyebrow}
         </p>
         <h2 className="mt-3 text-2xl font-black tracking-tight text-brand-white md:text-[2.5rem] leading-tight">
-          ¿Qué necesita tu negocio ahora?
+          {t.home.selector.title}
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-brand-muted">
-          Selecciona la prioridad actual de tu marca. Te preparamos el mensaje de WhatsApp para iniciar la conversación directo al grano.
+          {t.home.selector.subtitle}
         </p>
 
         {/* Grid of Compact Options */}
@@ -128,7 +130,7 @@ export function ServiceIntentSelector() {
         >
           <div className="flex-1">
             <p className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">
-              Mensaje listo para enviar:
+              {t.home.selector.dynamicLabel}
             </p>
             <p className="mt-1 text-sm font-medium text-brand-green italic">
               "{activeOption.message}"
@@ -139,10 +141,11 @@ export function ServiceIntentSelector() {
             message={activeOption.message}
             className="w-full sm:w-auto px-6 py-3 text-sm shadow-[0_0_20px_rgba(184,241,43,0.25)] shrink-0"
           >
-            Continuar por WhatsApp
+            {t.home.selector.whatsappCta}
           </WhatsAppButton>
         </motion.div>
       </div>
     </section>
   );
 }
+
