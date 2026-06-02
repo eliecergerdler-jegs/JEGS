@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2, MonitorSmartphone, Images, Video, Sparkles, Shield, Compass, Activity, Check } from "lucide-react";
 import { Link } from "react-router-dom";
+import { PortfolioGrid } from "../components/Portfolio";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { Section } from "../components/Section";
 import { BullHeroMark } from "../components/BullHeroMark";
@@ -71,6 +72,8 @@ export function Home() {
           ))}
         </div>
       </Section>
+
+      <PortfolioPreview />
 
       <Section
         eyebrow={t.home.method.eyebrow}
@@ -226,41 +229,22 @@ export function ServiceCard({ service }: { service: ServiceType }) {
 
 export function PortfolioPreview() {
   const { language } = useLanguage();
-  const portfolio = language === "es"
-
-    ? [
-        { tag: "Website", title: "Landing para negocio local", desc: "Estructura clara, CTA a WhatsApp y diseño responsive." },
-        { tag: "Social Media", title: "Campaña visual para Instagram", desc: "Posts, historias y carrusel con línea gráfica consistente." },
-        { tag: "Video", title: "Reel promocional dinámico", desc: "Edición vertical con subtítulos, ritmo y textos animados." },
-      ]
-    : [
-        { tag: "Website", title: "Local Business Landing Page", desc: "Clear structure, WhatsApp CTA, and fully responsive layout." },
-        { tag: "Social Media", title: "Instagram Visual Campaign", desc: "Cohesive visual feed, story pack, and promo carousels." },
-        { tag: "Video", title: "High-Energy Promo Reel", desc: "Vertical short-form video editing with captions, music, and animated text hooks." },
-      ];
-
   return (
     <Section 
-      eyebrow={language === "es" ? "Portafolio" : "Portfolio"} 
-      title={language === "es" ? "Mira cómo puede verse tu marca en digital." : "See how your brand can look online."} 
-      subtitle={language === "es" ? "Pocos proyectos, bien presentados. Esa es la jugada correcta al inicio: calidad visual antes que cantidad." : "Few projects, perfectly delivered. Quality over quantity, always."}
+      eyebrow={language === "es" ? "Selected Work" : "Selected Work"} 
+      title={language === "es" ? "Websites y experiencias digitales construidas para convertir." : "Websites and digital experiences built for brands that need to look professional and convert better."} 
+      subtitle={language === "es" ? "Diseñamos para negocios, servicios y marcas que buscan una presencia impecable en internet." : "Designed for businesses, services and brands that want to look professional and capture clients."}
+      className="py-12 md:py-16 bg-[radial-gradient(circle_at_center,rgba(30,123,255,0.02)_0%,transparent_60%)]"
     >
-      <div className="grid gap-6 md:grid-cols-3">
-        {portfolio.map((item) => (
-          <div 
-            key={item.title} 
-            className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl hover:shadow-brand-blue/20"
-          >
-            <div className="h-48 relative overflow-hidden bg-[radial-gradient(circle_at_30%_20%,rgba(184,241,43,.22),transparent_30%),radial-gradient(circle_at_75%_70%,rgba(30,123,255,.32),transparent_38%),#081225]">
-               <div className="absolute inset-0 bg-brand-bg/10 backdrop-blur-sm transition-all group-hover:backdrop-blur-none" />
-            </div>
-            <div className="relative p-6 bg-brand-bg2/50 backdrop-blur-md">
-              <p className="text-xs font-black uppercase tracking-[0.25em] text-brand-green">{item.tag}</p>
-              <h3 className="mt-3 text-xl font-black text-brand-white">{item.title}</h3>
-              <p className="mt-2 text-sm sm:text-base leading-relaxed text-brand-muted/95">{item.desc}</p>
-            </div>
-          </div>
-        ))}
+      <PortfolioGrid />
+      
+      <div className="mt-12 text-center">
+        <Link
+          to="/portafolio"
+          className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-bold text-brand-white transition hover:border-brand-blue/50 hover:bg-brand-blue/10"
+        >
+          {language === "es" ? "Ver todos los proyectos" : "View all projects"} <ArrowRight size={16} />
+        </Link>
       </div>
     </Section>
   );

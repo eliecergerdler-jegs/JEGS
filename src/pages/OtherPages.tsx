@@ -1,7 +1,8 @@
 import { ShieldCheck, Rocket, Sparkles, MessageCircle, Mail, ArrowRight } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
-import { FinalCta, PortfolioPreview } from "./Home";
+import { FinalCta } from "./Home";
+import { PortfolioGrid } from "../components/Portfolio";
 import { useLanguage } from "../contexts/LanguageContext";
 
 export function PortfolioPage() {
@@ -13,7 +14,9 @@ export function PortfolioPage() {
         title={language === "es" ? "Proyectos visuales para marcas que quieren destacar." : "Visual projects for brands that want to stand out."}
         subtitle={language === "es" ? "Una muestra de websites, artes para redes, videos y piezas digitales creadas para comunicar con más claridad y presencia." : "A display of websites, social graphics, videos, and digital assets designed for ultimate presence and clear communication."}
       />
-      <PortfolioPreview />
+      <Section className="pb-16 md:pb-24">
+        <PortfolioGrid />
+      </Section>
       <FinalCta />
     </>
   );
