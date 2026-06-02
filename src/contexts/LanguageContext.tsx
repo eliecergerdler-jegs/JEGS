@@ -14,17 +14,39 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 const getInitialLanguage = (): Language => {
-  // 1. Check local storage preference
+  // 1. Check local storage preference first (User explicit choice)
   const saved = localStorage.getItem("jegs-lang");
   if (saved === "es" || saved === "en") return saved;
 
-  // 2. Check browser navigator language (supports detecting US/EN clients automatically)
-  const browserLang = navigator.language || (navigator as any).userLanguage;
-  if (browserLang && browserLang.startsWith("en")) {
-    return "en";
+  // 2. Check browser navigator language (OS / Browser settings)
+  const browserLang = typeof navigator !== "undefined" ? (navigator.language || (navigator as any).userLanguage)?.toLowerCase() : "";
+  if (browserLang) {
+    if (browserLang.startsWith("es")) return "es";
+    if (browserLang.startsWith("en")) return "en";
   }
 
-  // 3. Fallback default
+  // 3. Fallback to TimeZone detection (Region based)
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    // Si está en LatAm o España, prefiere español
+    if (
+      tz.includes("America/Caracas") || 
+      tz.includes("America/Bogota") || 
+      tz.includes("America/Mexico_City") || 
+      tz.includes("America/Buenos_Aires") || 
+      tz.includes("America/Santiago") || 
+      tz.includes("America/Lima") || 
+      tz.includes("Europe/Madrid")
+    ) {
+      return "es";
+    }
+    if (tz.includes("America/") && !tz.includes("Caracas") && !tz.includes("Bogota") && !tz.includes("Mexico") && !tz.includes("Buenos_Aires") && !tz.includes("Santiago") && !tz.includes("Lima")) {
+      // US and Canada timezones typically
+      return "en";
+    }
+  } catch (e) {}
+
+  // 4. Fallback default
   return "es";
 };
 
