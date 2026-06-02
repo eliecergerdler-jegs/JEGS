@@ -12,7 +12,7 @@ export function PortfolioCard({ project }: { project: PortfolioProject }) {
     <div className="group flex flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] transition-all duration-300 hover:-translate-y-2 hover:border-brand-blue/30 hover:bg-white/[0.05] hover:shadow-2xl hover:shadow-brand-blue/10">
       {/* Image Container */}
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-brand-bg2">
-        <div className="absolute inset-0 bg-brand-bg/10 backdrop-blur-sm transition-all duration-300 group-hover:backdrop-blur-none z-10" />
+        <div className="absolute inset-0 bg-brand-bg/10 backdrop-blur-none md:backdrop-blur-[2px] transition-all duration-300 group-hover:backdrop-blur-none z-10" />
         <img
           src={project.image}
           alt={project.title}
