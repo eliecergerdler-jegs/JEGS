@@ -7,6 +7,7 @@ import { Home } from "./pages/Home";
 const Services = lazy(() => import("./pages/Services").then(m => ({ default: m.Services })));
 const DetailPage = lazy(() => import("./pages/DetailPage").then(m => ({ default: m.DetailPage })));
 const PortfolioPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.PortfolioPage })));
+const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage").then(m => ({ default: m.ProjectDetailPage })));
 const AboutPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.ContactPage })));
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="redes" element={<DetailPage type="social" />} />
           <Route path="video" element={<DetailPage type="video" />} />
           <Route path="portafolio" element={<PortfolioPage />} />
+          <Route path="portafolio/:id" element={<ProjectDetailPage />} />
           <Route path="sobre-jegs" element={<AboutPage />} />
           <Route path="contacto" element={<ContactPage />} />
         </Route>
