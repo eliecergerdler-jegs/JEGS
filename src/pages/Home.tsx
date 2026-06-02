@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2, MonitorSmartphone, Images, Video, Sparkles, Shield, Compass, Activity, Check } from "lucide-react";
 import { Link } from "react-router-dom";
-import { PortfolioGrid } from "../components/Portfolio";
+import { PortfolioCarousel } from "../components/Portfolio";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { Section } from "../components/Section";
 import { BullHeroMark } from "../components/BullHeroMark";
@@ -231,19 +231,19 @@ export function PortfolioPreview() {
   const { language } = useLanguage();
   return (
     <Section 
-      eyebrow={language === "es" ? "Selected Work" : "Selected Work"} 
-      title={language === "es" ? "Websites y experiencias digitales construidas para convertir." : "Websites and digital experiences built for brands that need to look professional and convert better."} 
+      eyebrow="Selected Work" 
+      title={language === "es" ? "Websites y experiencias digitales construidas para convertir." : "Websites and digital experiences built for brands, services and businesses that need to look professional and convert better."} 
       subtitle={language === "es" ? "Diseñamos para negocios, servicios y marcas que buscan una presencia impecable en internet." : "Designed for businesses, services and brands that want to look professional and capture clients."}
-      className="py-12 md:py-16 bg-[radial-gradient(circle_at_center,rgba(30,123,255,0.02)_0%,transparent_60%)]"
+      className="py-12 md:py-16 bg-[radial-gradient(circle_at_center,rgba(30,123,255,0.02)_0%,transparent_60%)] overflow-hidden"
     >
-      <PortfolioGrid />
+      <PortfolioCarousel />
       
       <div className="mt-12 text-center">
         <Link
           to="/portafolio"
           className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-bold text-brand-white transition hover:border-brand-blue/50 hover:bg-brand-blue/10"
         >
-          {language === "es" ? "Ver todos los proyectos" : "View all projects"} <ArrowRight size={16} />
+          {language === "es" ? "Ver Portafolio Completo" : "View Full Portfolio"} <ArrowRight size={16} />
         </Link>
       </div>
     </Section>

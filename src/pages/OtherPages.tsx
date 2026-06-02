@@ -11,8 +11,10 @@ export function PortfolioPage() {
     <>
       <PageHero
         eyebrow={language === "es" ? "Portafolio" : "Portfolio"}
-        title={language === "es" ? "Proyectos visuales para marcas que quieren destacar." : "Visual projects for brands that want to stand out."}
-        subtitle={language === "es" ? "Una muestra de websites, artes para redes, videos y piezas digitales creadas para comunicar con más claridad y presencia." : "A display of websites, social graphics, videos, and digital assets designed for ultimate presence and clear communication."}
+        title={language === "es" ? "Portafolio" : "Portfolio"}
+        subtitle={language === "es" 
+          ? "Una selección curada de sitios web, experiencias de e-commerce y proyectos digitales construidos para marcas que necesitan claridad, confianza y conversión." 
+          : "A curated selection of websites, e-commerce experiences and digital projects built for brands that need clarity, trust and conversion."}
       />
       <Section className="pb-16 md:pb-24">
         <PortfolioGrid />
