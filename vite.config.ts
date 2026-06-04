@@ -26,19 +26,19 @@ export default defineConfig({
         start_url: '/',
         scope: '/',
         background_color: '#050816',
-        theme_color: '#B8F12B',
+        theme_color: '#050816',
         icons: [
           {
             src: '/jegs-pwa-icon-192.png',
             sizes: '192x192',
             type: 'image/png',
-            purpose: 'any maskable',
+            purpose: 'any',
           },
           {
             src: '/jegs-pwa-icon-512.png',
             sizes: '512x512',
             type: 'image/png',
-            purpose: 'any maskable',
+            purpose: 'any',
           },
         ],
       },
