@@ -1,13 +1,29 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import type { PortfolioProject } from "../data/portfolio";
 import { portfolioProjects } from "../data/portfolio";
 import { useRef, useEffect, useState } from "react";
 
-export function PortfolioCard({ project, className = "" }: { project: PortfolioProject; className?: string }) {
-  const { language } = useLanguage();
+export function PortfolioCard({ 
+  project, 
+  className = "", 
+  index, 
+  isCarousel = false 
+}: { 
+  project: PortfolioProject; 
+  className?: string; 
+  index?: number; 
+  isCarousel?: boolean; 
+}) {
+  const { language, t } = useLanguage();
   const isEs = language === "es";
+
+  // Determine loading priority based on position in carousel/grid
+  const isLcp = isCarousel && index === 0;
+  const loading = isLcp ? "eager" : "lazy";
+  const fetchPriority = isLcp ? "high" : (isCarousel ? "low" : undefined);
+  const decoding = isLcp ? undefined : "async";
 
   return (
     <div className={`group flex flex-col overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.04] backdrop-blur-[12px] shadow-lg transition-all duration-300 hover:-translate-y-[6px] hover:border-brand-green/35 hover:bg-white/[0.05] hover:shadow-[0_0_24px_rgba(27,228,61,0.15)] ${className}`}>
@@ -16,7 +32,12 @@ export function PortfolioCard({ project, className = "" }: { project: PortfolioP
         <div className="absolute inset-0 bg-brand-bg/10 backdrop-blur-none md:backdrop-blur-[2px] transition-all duration-300 group-hover:backdrop-blur-none z-10" />
         <img
           src={project.image}
-          alt={project.title}
+          alt={isEs ? `Sitio web de ${project.title}, ${project.category.es}` : `Website for ${project.title}, ${project.category.en}`}
+          width={800}
+          height={500}
+          loading={loading}
+          decoding={decoding}
+          {...(fetchPriority ? { fetchpriority: fetchPriority } : {})}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
@@ -53,7 +74,7 @@ export function PortfolioCard({ project, className = "" }: { project: PortfolioP
             to={project.link}
             className="inline-flex items-center gap-2 text-sm font-black text-brand-white transition-colors hover:text-brand-green"
           >
-            {isEs ? "View Project" : "View Project"} <ArrowRight size={16} />
+            {t.common.viewProject} <ArrowRight size={16} />
           </Link>
         </div>
       </div>
@@ -65,7 +86,7 @@ export function PortfolioGrid({ projects = portfolioProjects }: { projects?: Por
   return (
     <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (
-        <PortfolioCard key={project.id} project={project} />
+        <PortfolioCard key={project.id} project={project} isCarousel={false} />
       ))}
     </div>
   );
@@ -90,7 +111,8 @@ export function PortfolioCarousel({ projects = portfolioProjects }: { projects?:
   };
 
   useEffect(() => {
-    if (isPaused) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (isPaused || prefersReducedMotion) return;
     
     const interval = setInterval(() => {
       scroll("right");
@@ -106,6 +128,8 @@ export function PortfolioCarousel({ projects = portfolioProjects }: { projects?:
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
     >
       {/* Navigation Buttons (Desktop/Tablet) */}
       <div className="absolute inset-y-0 -left-4 md:-left-6 z-20 hidden sm:flex items-center pointer-events-none">
@@ -133,15 +157,12 @@ export function PortfolioCarousel({ projects = portfolioProjects }: { projects?:
         className="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 pt-4 -mx-5 px-5 sm:mx-0 sm:px-0"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        <style>{`
-          .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
-        {projects.map((project) => (
+        {projects.map((project, idx) => (
           <PortfolioCard 
             key={project.id} 
             project={project} 
+            index={idx}
+            isCarousel={true}
             className="w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] shrink-0 snap-start"
           />
         ))}

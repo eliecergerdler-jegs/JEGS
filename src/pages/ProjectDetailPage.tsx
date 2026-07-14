@@ -1,7 +1,8 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { portfolioProjects } from "../data/portfolio";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
+import { usePageMeta } from "../hooks/usePageMeta";
 import { FinalCta } from "./Home";
 
 export function ProjectDetailPage() {
@@ -10,6 +11,11 @@ export function ProjectDetailPage() {
   const isEs = language === "es";
 
   const project = portfolioProjects.find((p) => p.id === id);
+
+  usePageMeta(
+    project ? project.title : "",
+    project ? (isEs ? project.description.es : project.description.en) : ""
+  );
 
   if (!project) {
     return <Navigate to="/portafolio" replace />;
@@ -53,9 +59,12 @@ export function ProjectDetailPage() {
           {project.fullImage ? (
             <img 
               src={project.fullImage} 
-              alt={`${project.title} Full Page Layout`}
+              alt={isEs ? `Captura de pantalla completa de la página web de ${project.title}` : `Full page design screenshot of the website for ${project.title}`}
+              width={1400}
+              height={900}
               className="w-full object-top" 
               loading="lazy"
+              decoding="async"
             />
           ) : (
             <div className="aspect-video w-full flex items-center justify-center text-brand-muted p-10 text-center">

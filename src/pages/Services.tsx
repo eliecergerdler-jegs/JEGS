@@ -2,10 +2,12 @@ import { MonitorSmartphone, Images, Video } from "lucide-react";
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
 import { FinalCta, ServiceCard } from "./Home";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function Services() {
   const { t } = useLanguage();
+  usePageMeta(t.header.nav.services, t.services.subtitle);
 
   const servicesData = [
     {

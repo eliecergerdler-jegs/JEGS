@@ -16,7 +16,6 @@ export default defineConfig({
         'jegs-pwa-icon-192.png',
         'jegs-pwa-icon-512.png',
         'offline.html',
-        'Imagenes/og-image-v1.png',
       ],
       manifest: {
         name: 'JEGS Digital',
@@ -92,7 +91,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /\/Imagenes\/Portfolio\/Cards_Home\/.*\.png$/i,
+            urlPattern: /\/Imagenes\/Portfolio\/Cards_Home\/.*\.webp$/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'jegs-portfolio-card-images',

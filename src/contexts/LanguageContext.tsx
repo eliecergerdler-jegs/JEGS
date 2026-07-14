@@ -1,17 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { translations } from "./translations";
-import type { TranslationSchema } from "./translations";
-
-
-export type Language = "es" | "en";
-
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: TranslationSchema;
-}
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+import { LanguageContext } from "./language";
+import type { Language } from "./language";
 
 const getInitialLanguage = (): Language => {
   // 1. Check local storage preference first (User explicit choice)
@@ -19,7 +9,7 @@ const getInitialLanguage = (): Language => {
   if (saved === "es" || saved === "en") return saved;
 
   // 2. Check browser navigator language (OS / Browser settings)
-  const browserLang = typeof navigator !== "undefined" ? (navigator.language || (navigator as any).userLanguage)?.toLowerCase() : "";
+  const browserLang = typeof navigator !== "undefined" ? (navigator.language || (navigator as Navigator & { userLanguage?: string }).userLanguage)?.toLowerCase() : "";
   if (browserLang) {
     if (browserLang.startsWith("es")) return "es";
     if (browserLang.startsWith("en")) return "en";
@@ -44,7 +34,9 @@ const getInitialLanguage = (): Language => {
       // US and Canada timezones typically
       return "en";
     }
-  } catch (e) {}
+  } catch {
+    // Intl API not available; fall through to default
+  }
 
   // 4. Fallback default
   return "es";
@@ -73,12 +65,4 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
 };

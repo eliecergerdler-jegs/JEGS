@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { MonitorSmartphone, Images, Video, Sparkles, Check } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 
 interface OptionType {
   id: string;

@@ -5,10 +5,12 @@ import { WhatsAppButton } from "../components/WhatsAppButton";
 import { Section } from "../components/Section";
 import { BullHeroMark } from "../components/BullHeroMark";
 import { ServiceIntentSelector } from "../components/ServiceIntentSelector";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function Home() {
   const { t } = useLanguage();
+  usePageMeta(t.header.nav.home, t.home.hero.subtitle);
 
   const servicesData = [
     {
@@ -207,6 +209,7 @@ interface ServiceType {
 
 export function ServiceCard({ service }: { service: ServiceType }) {
   const Icon = service.icon;
+  const { language } = useLanguage();
   return (
     <div className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] text-brand-white shadow-none transition hover:border-brand-blue/40 hover:bg-white/[0.055] p-6 md:p-8">
       <div className="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green shadow-[0_0_24px_rgba(30,123,255,.16)] transition group-hover:scale-110">
@@ -220,7 +223,9 @@ export function ServiceCard({ service }: { service: ServiceType }) {
           to={service.page}
           className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold text-brand-white transition hover:border-brand-blue/50 hover:bg-brand-blue/10"
         >
-          {useLanguage().language === "es" ? "Ver más" : "Learn more"} <ArrowRight size={16} />
+          {language === "es" ? "Ver más" : "Learn more"}
+          <span className="sr-only">{language === "es" ? ` sobre ${service.title}` : ` about ${service.title}`}</span>
+          <ArrowRight size={16} />
         </Link>
       </div>
     </div>

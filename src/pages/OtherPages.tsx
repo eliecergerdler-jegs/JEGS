@@ -3,10 +3,20 @@ import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
 import { FinalCta } from "./Home";
 import { PortfolioGrid } from "../components/Portfolio";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function PortfolioPage() {
   const { language } = useLanguage();
+  const isEs = language === "es";
+
+  usePageMeta(
+    isEs ? "Portafolio" : "Portfolio",
+    isEs 
+      ? "Una selección curada de sitios web, experiencias de e-commerce y proyectos digitales construidos para marcas que necesitan claridad, confianza y conversión." 
+      : "A curated selection of websites, e-commerce experiences and digital projects built for brands that need clarity, trust and conversion."
+  );
+
   return (
     <>
       <PageHero
@@ -26,6 +36,7 @@ export function PortfolioPage() {
 
 export function AboutPage() {
   const { t } = useLanguage();
+  usePageMeta(t.about.title, t.about.subtitle);
 
   const cards = [
     { icon: ShieldCheck, title: t.about.cards.clarity.title, text: t.about.cards.clarity.text },
@@ -70,6 +81,7 @@ function InstagramIcon({ size = 24 }) {
 
 export function ContactPage() {
   const { t } = useLanguage();
+  usePageMeta(t.contact.title, t.contact.subtitle);
   const whatsappMessage = encodeURIComponent(t.home.finalCta.message);
 
   return (
@@ -119,8 +131,13 @@ interface ContactCardProps {
 }
 
 function ContactCard({ icon: Icon, title, text, cta, href }: ContactCardProps) {
+  const isExternal = href.startsWith("http");
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[0.055]">
+    <a 
+      href={href} 
+      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[0.055]"
+    >
       <motion.div 
         className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green shadow-lg"
         whileHover={{ rotateY: 180, scale: 1.1 }}
