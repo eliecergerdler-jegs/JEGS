@@ -6,5 +6,8 @@
       "destination": "https://jegs.digital/:path*",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
