@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import type { PortfolioProject } from "../data/portfolio";
 import { portfolioProjects } from "../data/portfolio";
 import { useRef, useEffect, useState } from "react";

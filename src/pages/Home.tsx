@@ -5,7 +5,7 @@ import { WhatsAppButton } from "../components/WhatsAppButton";
 import { Section } from "../components/Section";
 import { BullHeroMark } from "../components/BullHeroMark";
 import { ServiceIntentSelector } from "../components/ServiceIntentSelector";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function Home() {

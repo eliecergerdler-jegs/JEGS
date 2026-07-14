@@ -3,7 +3,7 @@ import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
 import { FinalCta } from "./Home";
 import { PortfolioGrid } from "../components/Portfolio";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function PortfolioPage() {

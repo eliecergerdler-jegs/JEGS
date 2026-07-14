@@ -5,7 +5,7 @@ import { Section } from "../components/Section";
 import { FinalCta } from "./Home";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { motion } from "framer-motion";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function DetailPage({ type }: { type: 'web' | 'social' | 'video' }) {

@@ -4,7 +4,7 @@ import { Glow } from "./Glow";
 import { ScrollToTop } from "./ScrollToTop";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { Suspense } from "react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 
 export function Layout() {
   const { t } = useLanguage();

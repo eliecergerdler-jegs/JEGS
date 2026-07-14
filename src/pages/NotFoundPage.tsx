@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft, MessageCircle } from "lucide-react";
-import { useLanguage } from "../contexts/LanguageContext";
+import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function NotFoundPage() {

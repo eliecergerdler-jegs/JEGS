@@ -3,7 +3,12 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  // Only show the custom cursor on fine-pointer devices without reduced motion
+  const [isVisible] = useState(() => {
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    return !isTouchDevice && !prefersReducedMotion;
+  });
 
   // Framer Motion motion values for cursor position
   const cursorX = useMotionValue(-100);
@@ -15,15 +20,9 @@ export function CustomCursor() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   useEffect(() => {
-    // Check if the device is a touch screen (coarse pointer) or prefers reduced motion
-    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (isTouchDevice || prefersReducedMotion) {
+    if (!isVisible) {
       return;
     }
-
-    setIsVisible(true);
 
     const updateMousePosition = (e: MouseEvent) => {
       cursorX.set(e.clientX);
@@ -51,7 +50,7 @@ export function CustomCursor() {
       window.removeEventListener("mousemove", updateMousePosition);
       window.removeEventListener("mouseover", handleMouseOver);
     };
-  }, [cursorX, cursorY]);
+  }, [isVisible, cursorX, cursorY]);
 
   if (!isVisible) {
     return null;
