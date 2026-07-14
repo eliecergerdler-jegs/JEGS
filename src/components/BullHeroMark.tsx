@@ -1,4 +1,6 @@
 import bullLight from "../assets/Imagenes/jegs-bull-light.webp";
+import bullLight384 from "../assets/Imagenes/jegs-bull-light-384.webp";
+import bullLight288 from "../assets/Imagenes/jegs-bull-light-288.webp";
 import { Shield, Layout, Film, Cpu } from "lucide-react";
 
 export function BullHeroMark() {
@@ -65,10 +67,11 @@ export function BullHeroMark() {
           
           <img
             src={bullLight}
+            srcSet={`${bullLight288} 288w, ${bullLight384} 384w, ${bullLight} 441w`}
+            sizes="(min-width: 1280px) 320px, (min-width: 1024px) 288px, (min-width: 768px) 208px, (min-width: 640px) 176px, 144px"
             alt="JEGS Digital"
             width="294"
             height="345"
-            fetchPriority="high"
             decoding="async"
             className="h-full w-full object-contain drop-shadow-[0_0_24px_rgba(184,241,43,0.25)] transition-all hover:drop-shadow-[0_0_32px_rgba(30,123,255,0.45)]"
           />
