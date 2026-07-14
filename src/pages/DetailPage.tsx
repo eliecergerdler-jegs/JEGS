@@ -6,10 +6,10 @@ import { FinalCta } from "./Home";
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function DetailPage({ type }: { type: 'web' | 'social' | 'video' }) {
   const { t } = useLanguage();
-
   const content = useMemo(() => {
     const map = {
       web: {
@@ -42,6 +42,8 @@ export function DetailPage({ type }: { type: 'web' | 'social' | 'video' }) {
     };
     return map[type];
   }, [type, t]);
+
+  usePageMeta(content.title, content.subtitle);
 
   const Icon = content.icon;
 

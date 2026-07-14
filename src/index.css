@@ -72,3 +72,16 @@
     font-family: var(--font-heading);
   }
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--color-brand-green);
+  outline-offset: 4px;
+}

@@ -10,6 +10,7 @@ const PortfolioPage = lazy(() => import("./pages/OtherPages").then(m => ({ defau
 const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage").then(m => ({ default: m.ProjectDetailPage })));
 const AboutPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.ContactPage })));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="portafolio/:id" element={<ProjectDetailPage />} />
           <Route path="sobre-jegs" element={<AboutPage />} />
           <Route path="contacto" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

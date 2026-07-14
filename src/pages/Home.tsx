@@ -6,9 +6,11 @@ import { Section } from "../components/Section";
 import { BullHeroMark } from "../components/BullHeroMark";
 import { ServiceIntentSelector } from "../components/ServiceIntentSelector";
 import { useLanguage } from "../contexts/LanguageContext";
+import { usePageMeta } from "../hooks/usePageMeta";
 
 export function Home() {
   const { t } = useLanguage();
+  usePageMeta(t.header.nav.home, t.home.hero.subtitle);
 
   const servicesData = [
     {
