@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { WhatsAppButton } from "./WhatsAppButton";
 import { useLanguage } from "../contexts/useLanguage";
-import logoSvg from "../assets/Imagenes/jegs-bull-light.webp";
+import logoSvg from "../assets/Imagenes/jegs-bull-logo.webp";
 
 export function Header() {
   const [open, setOpen] = useState(false);
