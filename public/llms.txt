@@ -1,0 +1,34 @@
+# JEGS Digital
+
+> Agencia de diseño digital en Venezuela que atiende a toda Latinoamérica, España y Estados Unidos. Creamos sitios web profesionales, artes para redes sociales y edición de videos para emprendedores, negocios locales y marcas que quieren verse más profesionales y captar clientes. Contacto directo por WhatsApp: https://wa.me/584125738257
+
+El sitio está disponible en español (predeterminado) e inglés.
+
+## Páginas principales
+
+- [Inicio](https://jegs.digital/): Presentación de la agencia y resumen de servicios
+- [Servicios](https://jegs.digital/servicios): Catálogo completo de servicios de diseño digital
+- [Diseño web](https://jegs.digital/web): Sitios web profesionales, responsive y optimizados para SEO
+- [Redes sociales](https://jegs.digital/redes): Artes y contenido visual para redes sociales
+- [Video](https://jegs.digital/video): Edición de videos cortos para marcas
+- [Portafolio](https://jegs.digital/portafolio): Proyectos realizados para clientes
+- [Sobre JEGS](https://jegs.digital/sobre-jegs): Historia y enfoque de la agencia
+- [Contacto](https://jegs.digital/contacto): Formas de contacto y cotización
+
+## Proyectos del portafolio
+
+- [Sapori di Racchetta](https://jegs.digital/portafolio/sapori-di-racchetta): Proyecto para restaurante
+- [GLV Events](https://jegs.digital/portafolio/glv-events): Proyecto para organizadora de eventos
+- [Posada Isla Piscina](https://jegs.digital/portafolio/posada-isla-piscina): Proyecto para posada turística
+- [DD Diesel](https://jegs.digital/portafolio/dd-diesel): Proyecto para servicio automotriz
+- [CrossFit Taíno](https://jegs.digital/portafolio/crossfit-taino): Proyecto para gimnasio
+- [Biolab Supplies](https://jegs.digital/portafolio/biolab-supplies): Proyecto para insumos de laboratorio
+- [Dra. Jenny Simancas](https://jegs.digital/portafolio/dra-jenny-simancas): Proyecto para consultorio médico
+- [Moto Carrizal](https://jegs.digital/portafolio/moto-carrizal): Proyecto para tienda de motos
+- [Recetas Cultura y Cocina](https://jegs.digital/portafolio/recetas-cultura-cocina): Proyecto de contenido gastronómico
+- [DD Diesel Parts](https://jegs.digital/portafolio/dd-diesel-parts): Proyecto para repuestos automotrices
+
+## Recursos
+
+- [Sitemap](https://jegs.digital/sitemap.xml): Mapa completo del sitio
+- [Robots](https://jegs.digital/robots.txt): Directivas de rastreo
