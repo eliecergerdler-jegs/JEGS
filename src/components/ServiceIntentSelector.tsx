@@ -55,16 +55,18 @@ export function ServiceIntentSelector() {
       <div className="absolute top-1/2 left-0 h-48 w-48 -translate-y-1/2 rounded-full bg-brand-blue/5 blur-[100px] pointer-events-none" />
       <div className="absolute top-1/2 right-0 h-48 w-48 -translate-y-1/2 rounded-full bg-brand-green/5 blur-[100px] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-5xl text-center">
-        <p className="text-xs font-black uppercase tracking-[0.32em] text-brand-green">
-          {t.home.selector.eyebrow}
-        </p>
-        <h2 className="mt-3 text-2xl font-black tracking-tight text-brand-white md:text-[2.5rem] leading-tight">
-          {t.home.selector.title}
-        </h2>
-        <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-brand-muted">
-          {t.home.selector.subtitle}
-        </p>
+      <div className="relative mx-auto max-w-5xl text-center lg:max-w-7xl 2xl:max-w-[88rem]">
+        <div className="mx-auto max-w-3xl">
+          <p className="text-xs font-black uppercase tracking-[0.32em] text-brand-green">
+            {t.home.selector.eyebrow}
+          </p>
+          <h2 className="mt-3 text-2xl font-black tracking-tight text-brand-white md:text-[2.5rem] leading-tight">
+            {t.home.selector.title}
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-brand-muted">
+            {t.home.selector.subtitle}
+          </p>
+        </div>
 
         {/* Grid of Compact Options */}
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -126,7 +128,7 @@ export function ServiceIntentSelector() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-white/5 bg-brand-bg2/40 px-6 py-5 backdrop-blur-md max-w-2xl mx-auto text-left"
+          className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-white/5 bg-brand-bg2/40 px-6 py-5 backdrop-blur-md max-w-2xl lg:max-w-3xl mx-auto text-left"
         >
           <div className="flex-1">
             <p className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">
@@ -148,4 +150,3 @@ export function ServiceIntentSelector() {
     </section>
   );
 }
-

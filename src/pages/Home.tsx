@@ -5,6 +5,7 @@ import { WhatsAppButton } from "../components/WhatsAppButton";
 import { Section } from "../components/Section";
 import { BullHeroMark } from "../components/BullHeroMark";
 import { ServiceIntentSelector } from "../components/ServiceIntentSelector";
+import { HomeVideoPortfolioSection } from "../components/VideoPortfolio";
 import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
 
@@ -76,6 +77,8 @@ export function Home() {
       </Section>
 
       <PortfolioPreview />
+
+      <HomeVideoPortfolioSection />
 
       <Section
         eyebrow={t.home.method.eyebrow}
@@ -156,19 +159,19 @@ function Hero() {
     : ["Responsive", "WhatsApp", "Core SEO", "Premium Design"];
 
   return (
-    <div className="relative overflow-hidden px-5 py-16 md:py-24 lg:py-28">
+    <div className="relative overflow-hidden px-5 py-16 md:py-24 lg:py-20 xl:py-24">
       {/* Background Particles for Parallax Effect */}
       <div className="absolute top-1/4 left-1/4 h-3 w-3 rounded-full bg-brand-green/40 blur-[1px] animate-jegs-particle-1" />
       <div className="absolute top-1/3 right-1/4 h-2 w-2 rounded-full bg-brand-blue/60 blur-[1px] animate-jegs-particle-2" />
       <div className="absolute bottom-1/4 left-1/3 h-4 w-4 rounded-full bg-brand-green/20 blur-[2px] animate-jegs-particle-3" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1fr]">
-        <div>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 2xl:max-w-[88rem] lg:grid-cols-[minmax(0,1.08fr)_minmax(420px,.92fr)] xl:gap-16">
+        <div className="min-w-0">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-bold uppercase tracking-[0.22em] text-brand-muted">
             <Sparkles size={14} className="text-brand-green" />
             {t.home.hero.eyebrow}
           </div>
-          <h1 className="max-w-4xl text-[1.85rem] min-[360px]:text-[2.15rem] min-[400px]:text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.5rem] font-black leading-[1.03] tracking-tight text-brand-white">
+          <h1 className="max-w-4xl overflow-wrap-anywhere text-[1.85rem] min-[360px]:text-[2.15rem] min-[400px]:text-[2.35rem] sm:text-5xl md:text-6xl lg:text-[4.35rem] xl:text-[4.75rem] font-black leading-[1.03] tracking-tight text-brand-white">
             {t.home.hero.titleFirst}<span className="text-brand-green">{t.home.hero.titleHighlight}</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-brand-muted/95 md:text-xl">
@@ -275,7 +278,7 @@ export function FinalCta() {
   const { t } = useLanguage();
   return (
     <section className="px-5 py-12 md:py-16">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] border border-brand-blue/25 bg-brand-bg2 p-8 text-center md:p-14">
+      <div className="relative mx-auto max-w-7xl 2xl:max-w-[88rem] overflow-hidden rounded-[2.5rem] border border-brand-blue/25 bg-brand-bg2 p-8 text-center md:p-14">
         <div className="pointer-events-none absolute inset-0 overflow-hidden z-0">
           <div className="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-brand-blue/20 blur-[100px]" />
           <div className="absolute right-[-100px] top-80 h-80 w-80 rounded-full bg-brand-green/10 blur-[110px]" />
@@ -294,4 +297,3 @@ export function FinalCta() {
     </section>
   );
 }
-

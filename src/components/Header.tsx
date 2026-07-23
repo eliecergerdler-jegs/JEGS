@@ -24,9 +24,13 @@ export function Header() {
   const navLinks = [
     { path: "/", label: t.header.nav.home },
     { path: "/servicios", label: t.header.nav.services },
+    { path: "/portafolio", label: t.header.nav.webPortfolio },
+    { path: "/video-editing", label: t.header.nav.videoPortfolio },
     { path: "/sobre-jegs", label: t.header.nav.about },
     { path: "/contacto", label: t.header.nav.contact },
   ];
+  const isNavActive = (path: string) =>
+    path === "/" ? location.pathname === path : location.pathname === path || location.pathname.startsWith(`${path}/`);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-bg/80 backdrop-blur-xl">
@@ -50,7 +54,7 @@ export function Header() {
 
         <nav className="hidden items-center gap-1 lg:flex">
           {navLinks.map((p) => {
-            const isActive = location.pathname === p.path;
+            const isActive = isNavActive(p.path);
             return (
               <Link
                 key={p.path}
@@ -111,16 +115,23 @@ export function Header() {
       {open && (
         <div id="mobile-navigation" className="border-t border-white/10 bg-brand-bg px-5 py-4 lg:hidden">
           <div className="grid gap-2">
-            {navLinks.map((p) => (
-              <Link 
-                key={p.path} 
-                to={p.path}
-                onClick={() => setOpen(false)} 
-                className="rounded-xl bg-white/5 px-4 py-3 text-left text-sm font-semibold text-brand-white"
-              >
-                {p.label}
-              </Link>
-            ))}
+            {navLinks.map((p) => {
+              const isActive = isNavActive(p.path);
+              return (
+                <Link
+                  key={p.path}
+                  to={p.path}
+                  onClick={() => setOpen(false)}
+                  className={`rounded-xl px-4 py-3 text-left text-sm font-semibold transition ${
+                    isActive
+                      ? "bg-brand-blue/15 text-brand-white"
+                      : "bg-white/5 text-brand-white hover:bg-white/10"
+                  }`}
+                >
+                  {p.label}
+                </Link>
+              );
+            })}
 
             {/* Premium Mobile Language Toggler */}
             <div className="mt-2 flex items-center justify-between rounded-xl bg-white/5 px-4 py-3 border border-white/10">
@@ -158,4 +169,3 @@ export function Header() {
     </header>
   );
 }
-

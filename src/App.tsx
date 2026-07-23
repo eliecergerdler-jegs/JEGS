@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 // Lazy loaded page components
 const Services = lazy(() => import("./pages/Services").then(m => ({ default: m.Services })));
 const DetailPage = lazy(() => import("./pages/DetailPage").then(m => ({ default: m.DetailPage })));
+const VideoEditingPage = lazy(() => import("./pages/VideoEditingPage").then(m => ({ default: m.VideoEditingPage })));
 const PortfolioPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.PortfolioPage })));
 const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage").then(m => ({ default: m.ProjectDetailPage })));
 const AboutPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.AboutPage })));
@@ -22,6 +23,7 @@ function App() {
           <Route path="web" element={<DetailPage type="web" />} />
           <Route path="redes" element={<DetailPage type="social" />} />
           <Route path="video" element={<DetailPage type="video" />} />
+          <Route path="video-editing" element={<VideoEditingPage />} />
           <Route path="portafolio" element={<PortfolioPage />} />
           <Route path="portafolio/:id" element={<ProjectDetailPage />} />
           <Route path="sobre-jegs" element={<AboutPage />} />

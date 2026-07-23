@@ -12,6 +12,8 @@ export const es: TranslationSchema = {
     nav: {
       home: "Inicio",
       services: "Servicios",
+      webPortfolio: "Web",
+      videoPortfolio: "Video",
       about: "Sobre JEGS",
       contact: "Contacto",
     },
@@ -88,6 +90,12 @@ export const es: TranslationSchema = {
         },
       },
     },
+    videoPortfolio: {
+      eyebrow: "Video Editing",
+      title: "Historias que atrapan. Edición que convierte.",
+      subtitle: "Creamos videos para marcas, profesionales y eventos, combinando ritmo, intención y una estética diseñada para captar atención.",
+      cta: "Ver portafolio de video",
+    },
     method: {
       eyebrow: "JEGS Bull Method",
       title: "Fuerza visual, dirección clara y acción comercial.",
@@ -161,6 +169,72 @@ export const es: TranslationSchema = {
       subtitle: "Cuéntanos qué necesitas y te ayudamos a convertir tu presencia digital en una herramienta real para captar clientes.",
       btn: "Cotizar por WhatsApp",
       message: "Hola JEGS, quiero darle más fuerza digital a mi marca.",
+    },
+  },
+  videoPortfolio: {
+    watchCta: "Reproducir video",
+    playLabel: "Reproducir {title}",
+    closeLabel: "Cerrar video",
+  },
+  videoEditing: {
+    metaTitle: "Portafolio de edición de video",
+    metaDescription: "Portafolio audiovisual de JEGS Digital con edición estratégica, storytelling de marca, motion design y contenido social para negocios y marcas.",
+    hero: {
+      eyebrow: "Video Editing",
+      title: "Edición de video que convierte ideas y material grabado en contenido listo para atraer acción.",
+      subtitle: "JEGS transforma ideas, material grabado y mensajes comerciales en videos con estructura, ritmo visual y claridad para que tu marca capte atención y guíe al cliente hacia el siguiente paso.",
+      cta: "Iniciar proyecto de video",
+      secondaryCta: "Ver portfolio web",
+      message: "Hola JEGS, quiero iniciar un proyecto de edicion de video para mi marca.",
+    },
+    process: {
+      eyebrow: "Enfoque audiovisual",
+      title: "Cada pieza se edita con intención, no solo con cortes bonitos.",
+      subtitle: "El objetivo es ordenar el mensaje, sostener la atención y entregar una pieza lista para publicar en el canal correcto.",
+      cards: {
+        idea: {
+          title: "Mensaje claro",
+          text: "Partimos de la idea, el material disponible y la acción comercial que debe provocar el video.",
+        },
+        edit: {
+          title: "Ritmo y storytelling",
+          text: "Construimos una secuencia visual con cortes, textos, motion y audio pensados para retener sin perder claridad.",
+        },
+        delivery: {
+          title: "Contenido publicable",
+          text: "La pieza queda preparada para comunicar mejor en redes, campanas, invitaciones o presentaciones de marca.",
+        },
+      },
+    },
+    portfolio: {
+      eyebrow: "Portafolio audiovisual",
+      title: "Una muestra editorial de video marketing, storytelling y motion design.",
+      subtitle: "Proyectos seleccionados para mostrar diferentes maneras de transformar un mensaje en contenido audiovisual profesional.",
+    },
+    finalCta: {
+      eyebrow: "Contrata edicion de video",
+      title: "Convierte tu próximo video en una pieza clara, dinámica y lista para publicar.",
+      subtitle: "Cuéntanos qué material tienes, qué quieres comunicar y dónde se publicará. JEGS te orienta por WhatsApp para definir el alcance.",
+      btn: "Cotizar edición de video",
+      message: "Hola JEGS, quiero cotizar edición de video para mi marca.",
+    },
+  },
+  portfolioPage: {
+    metaTitle: "Portafolio web",
+    metaDescription: "Portafolio web de JEGS Digital con sitios profesionales, rápidos y adaptados a móvil para negocios que necesitan confianza, claridad y contacto.",
+    hero: {
+      eyebrow: "Diseño Web",
+      title: "Diseño web que convierte tu presencia digital en confianza y oportunidades.",
+      subtitle: "Creamos sitios rápidos, claros y adaptados a móvil para que tu negocio se vea profesional, comunique mejor lo que ofrece y lleve al cliente directo al contacto.",
+      cta: "Cotizar mi página web",
+      secondaryCta: "Ver proyectos web",
+      message: "Hola, vi el portafolio web de JEGS y quiero conversar sobre una página para mi negocio.",
+      featuredLabel: "Proyecto destacado",
+    },
+    portfolio: {
+      eyebrow: "Portafolio web",
+      title: "Sitios reales diseñados para presentar, vender y generar confianza.",
+      subtitle: "Una selección completa de proyectos web creados para marcas, negocios y profesionales con necesidades distintas.",
     },
   },
   services: {

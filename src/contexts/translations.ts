@@ -13,6 +13,8 @@ export interface TranslationSchema {
     nav: {
       home: string;
       services: string;
+      webPortfolio: string;
+      videoPortfolio: string;
       about: string;
       contact: string;
     };
@@ -54,6 +56,12 @@ export interface TranslationSchema {
         artes: { title: string; text: string; cta: string };
         video: { title: string; text: string; cta: string };
       };
+    };
+    videoPortfolio: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      cta: string;
     };
     method: {
       eyebrow: string;
@@ -143,6 +151,63 @@ export interface TranslationSchema {
       message: string;
       includes: string[];
       benefits: string[];
+    };
+  };
+  videoPortfolio: {
+    watchCta: string;
+    playLabel: string;
+    closeLabel: string;
+  };
+  videoEditing: {
+    metaTitle: string;
+    metaDescription: string;
+    hero: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      cta: string;
+      secondaryCta: string;
+      message: string;
+    };
+    process: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      cards: {
+        idea: { title: string; text: string };
+        edit: { title: string; text: string };
+        delivery: { title: string; text: string };
+      };
+    };
+    portfolio: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+    };
+    finalCta: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      btn: string;
+      message: string;
+    };
+  };
+  portfolioPage: {
+    metaTitle: string;
+    metaDescription: string;
+    hero: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
+      cta: string;
+      secondaryCta: string;
+      message: string;
+      featuredLabel: string;
+    };
+    portfolio: {
+      eyebrow: string;
+      title: string;
+      subtitle: string;
     };
   };
   footer: {

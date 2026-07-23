@@ -2,31 +2,25 @@ import { ShieldCheck, Rocket, Sparkles, MessageCircle, Mail, ArrowRight } from "
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
 import { FinalCta } from "./Home";
-import { PortfolioGrid } from "../components/Portfolio";
+import { PortfolioGrid, WebPortfolioHero } from "../components/Portfolio";
 import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function PortfolioPage() {
-  const { language } = useLanguage();
-  const isEs = language === "es";
+  const { t } = useLanguage();
 
-  usePageMeta(
-    isEs ? "Portafolio" : "Portfolio",
-    isEs 
-      ? "Una selección curada de sitios web, experiencias de e-commerce y proyectos digitales construidos para marcas que necesitan claridad, confianza y conversión." 
-      : "A curated selection of websites, e-commerce experiences and digital projects built for brands that need clarity, trust and conversion."
-  );
+  usePageMeta(t.portfolioPage.metaTitle, t.portfolioPage.metaDescription);
 
   return (
     <>
-      <PageHero
-        eyebrow={language === "es" ? "Portafolio" : "Portfolio"}
-        title={language === "es" ? "Portafolio" : "Portfolio"}
-        subtitle={language === "es" 
-          ? "Una selección curada de sitios web, experiencias de e-commerce y proyectos digitales construidos para marcas que necesitan claridad, confianza y conversión." 
-          : "A curated selection of websites, e-commerce experiences and digital projects built for brands that need clarity, trust and conversion."}
-      />
-      <Section className="pb-16 md:pb-24">
+      <WebPortfolioHero />
+      <Section
+        id="web-portfolio"
+        eyebrow={t.portfolioPage.portfolio.eyebrow}
+        title={t.portfolioPage.portfolio.title}
+        subtitle={t.portfolioPage.portfolio.subtitle}
+        className="pb-16 pt-10 md:pb-24 md:pt-14"
+      >
         <PortfolioGrid />
       </Section>
       <FinalCta />

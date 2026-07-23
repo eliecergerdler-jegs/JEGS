@@ -4,11 +4,18 @@ import { useLocation } from "react-router-dom";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
-  const { pathname } = useLocation();
+  const { hash, pathname } = useLocation();
 
   useEffect(() => {
+    if (hash) {
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+        return;
+      }
+    }
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [hash, pathname]);
 
   useEffect(() => {
     const toggleVisibility = () => {

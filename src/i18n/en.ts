@@ -12,6 +12,8 @@ export const en: TranslationSchema = {
     nav: {
       home: "Home",
       services: "Services",
+      webPortfolio: "Web",
+      videoPortfolio: "Video",
       about: "About JEGS",
       contact: "Contact",
     },
@@ -88,6 +90,12 @@ export const en: TranslationSchema = {
         },
       },
     },
+    videoPortfolio: {
+      eyebrow: "Video Editing",
+      title: "Stories that hook. Editing that converts.",
+      subtitle: "We create videos for brands, professionals, and events, combining rhythm, intention, and visuals designed to capture attention.",
+      cta: "View video portfolio",
+    },
     method: {
       eyebrow: "JEGS Bull Method",
       title: "Visual power, clear direction, and commercial impact.",
@@ -161,6 +169,72 @@ export const en: TranslationSchema = {
       subtitle: "Tell us what you need and we will help you convert your digital footprint into a real business tool to capture clients.",
       btn: "Get quote on WhatsApp",
       message: "Hello JEGS, I want to empower my brand digitally.",
+    },
+  },
+  videoPortfolio: {
+    watchCta: "Play video",
+    playLabel: "Play {title}",
+    closeLabel: "Close video",
+  },
+  videoEditing: {
+    metaTitle: "Video editing portfolio",
+    metaDescription: "JEGS Digital audiovisual portfolio with strategic editing, brand storytelling, motion design, and social content for businesses and brands.",
+    hero: {
+      eyebrow: "Video Editing",
+      title: "Video editing that turns ideas and recorded footage into content built to attract action.",
+      subtitle: "JEGS transforms ideas, raw footage, and commercial messages into videos with structure, visual rhythm, and clarity so your brand can capture attention and guide clients toward the next step.",
+      cta: "Start a video project",
+      secondaryCta: "View web portfolio",
+      message: "Hello JEGS, I want to start a video editing project for my brand.",
+    },
+    process: {
+      eyebrow: "Audiovisual approach",
+      title: "Every piece is edited with intention, not just polished cuts.",
+      subtitle: "The goal is to organize the message, hold attention, and deliver a piece ready for the right publishing channel.",
+      cards: {
+        idea: {
+          title: "Clear message",
+          text: "We start with the idea, available footage, and the commercial action the video should encourage.",
+        },
+        edit: {
+          title: "Rhythm and storytelling",
+          text: "We build a visual sequence with cuts, text, motion, and audio choices designed to retain attention without losing clarity.",
+        },
+        delivery: {
+          title: "Publish-ready content",
+          text: "The final piece is prepared to communicate better across social platforms, campaigns, invitations, or brand presentations.",
+        },
+      },
+    },
+    portfolio: {
+      eyebrow: "Audiovisual portfolio",
+      title: "An editorial sample of video marketing, storytelling, and motion design.",
+      subtitle: "Selected projects showing different ways to transform a message into professional audiovisual content.",
+    },
+    finalCta: {
+      eyebrow: "Hire video editing",
+      title: "Turn your next video into a clear, dynamic, publish-ready piece.",
+      subtitle: "Tell us what footage you have, what you need to communicate, and where it will be published. JEGS will guide you through WhatsApp to define the scope.",
+      btn: "Quote video editing",
+      message: "Hello JEGS, I want to quote video editing for my brand.",
+    },
+  },
+  portfolioPage: {
+    metaTitle: "Web portfolio",
+    metaDescription: "JEGS Digital web portfolio with professional, fast, mobile-ready websites for businesses that need trust, clarity, and contact.",
+    hero: {
+      eyebrow: "Web Design",
+      title: "Web design that turns your digital presence into trust and opportunities.",
+      subtitle: "We create fast, clear, mobile-ready websites that help your business look professional, communicate its value, and guide customers toward taking action.",
+      cta: "Start my website",
+      secondaryCta: "View web projects",
+      message: "Hello, I saw JEGS web portfolio and want to talk about a website for my business.",
+      featuredLabel: "Featured project",
+    },
+    portfolio: {
+      eyebrow: "Web portfolio",
+      title: "Real websites designed to present, sell, and build trust.",
+      subtitle: "A full selection of web projects created for brands, businesses, and professionals with different needs.",
     },
   },
   services: {
