@@ -9,6 +9,30 @@ import { WhatsAppButton } from "./WhatsAppButton";
 
 const webHeroProjects = portfolioProjects.slice(0, 4);
 
+export function WebDesignHeroGallery({ projects = webHeroProjects }: { projects?: PortfolioProject[] }) {
+  const { language } = useLanguage();
+  const isEs = language === "es";
+  const [featuredProject, ...secondaryProjects] = projects;
+
+  if (!featuredProject) return null;
+
+  return (
+    <div className="relative mx-auto w-full max-w-xl min-w-0 rounded-[2rem] border border-white/10 bg-white/[0.035] p-3 shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)] sm:p-4">
+      <WebHeroProjectTile
+        project={featuredProject}
+        featured
+        label={isEs ? "Sitio destacado" : "Featured website"}
+        isEs={isEs}
+      />
+      <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
+        {secondaryProjects.map((project) => (
+          <WebHeroProjectTile key={project.id} project={project} isEs={isEs} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function PortfolioCard({ 
   project, 
   className = "", 
@@ -175,7 +199,7 @@ function WebHeroProjectTile({
           event.currentTarget.click();
         }
       }}
-      className={`${interaction.interactiveCardClassName} group relative overflow-hidden border border-white/10 bg-brand-bg2 ${
+      className={`${interaction.interactiveCardClassName} group relative block overflow-hidden border border-white/10 bg-brand-bg2 ${
         featured ? "rounded-[1.5rem]" : "rounded-2xl"
       }`}
       aria-label={`${project.title} - ${category}`}

@@ -12,9 +12,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'script-defer',
       includeAssets: [
-        'JEGS_FAVICON_NEGRO.svg',
-        'jegs-pwa-icon-192.png',
-        'jegs-pwa-icon-512.png',
+        'favicon-jegs-v2.svg',
+        'favicon-jegs-v2-192.png',
+        'favicon-jegs-v2-512.png',
+        'apple-touch-icon-jegs-v2.png',
         'offline.html',
       ],
       manifest: {
@@ -28,13 +29,13 @@ export default defineConfig({
         theme_color: '#050816',
         icons: [
           {
-            src: '/jegs-pwa-icon-192.png',
+            src: '/favicon-jegs-v2-192.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable',
           },
           {
-            src: '/jegs-pwa-icon-512.png',
+            src: '/favicon-jegs-v2-512.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',
@@ -105,7 +106,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /\/(JEGS_FAVICON_NEGRO\.svg|jegs-pwa-icon-(192|512)\.png|Imagenes\/og-image-v1\.png)$/i,
+            urlPattern: /\/(favicon-jegs-v2\.svg|favicon-jegs-v2-(192|512)\.png|apple-touch-icon-jegs-v2\.png|Imagenes\/og-image-v1\.png)$/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'jegs-brand-assets',
