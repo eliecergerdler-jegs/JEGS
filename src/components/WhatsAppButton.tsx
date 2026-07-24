@@ -1,17 +1,20 @@
 import { MessageCircle } from "lucide-react";
+import { trackConversion } from "../lib/analytics";
 
 interface WhatsAppButtonProps {
   children?: React.ReactNode;
   variant?: "primary" | "secondary";
   className?: string;
   message?: string;
+  ctaLocation?: string;
 }
 
 export function WhatsAppButton({ 
   children = "Cotizar por WhatsApp", 
   variant = "primary",
   className = "",
-  message = "Hola JEGS, quiero información sobre tus servicios digitales."
+  message = "Hola JEGS, quiero información sobre tus servicios digitales.",
+  ctaLocation = "whatsapp_button",
 }: WhatsAppButtonProps) {
   const phone = "584125738257";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
@@ -21,7 +24,7 @@ export function WhatsAppButton({
     : "border border-white/15 bg-white/5 text-brand-white hover:border-brand-blue/60 hover:bg-brand-blue/10";
     
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer" className={`${base} ${styles} ${className}`}>
+    <a href={url} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion("whatsapp_click", { cta_location: ctaLocation })} className={`${base} ${styles} ${className}`}>
       <MessageCircle size={18} />
       {children}
     </a>

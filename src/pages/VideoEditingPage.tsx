@@ -5,6 +5,8 @@ import { VideoHeroVisual, VideoPortfolioShowcase } from "../components/VideoPort
 import { WhatsAppButton } from "../components/WhatsAppButton";
 import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { ContactForm } from "../components/ContactForm";
+import { trackConversion } from "../lib/analytics";
 
 export function VideoEditingPage() {
   const { t } = useLanguage();
@@ -27,9 +29,10 @@ export function VideoEditingPage() {
               {t.videoEditing.hero.subtitle}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <WhatsAppButton message={t.videoEditing.hero.message} className="w-full sm:w-auto">{t.videoEditing.hero.cta}</WhatsAppButton>
+              <WhatsAppButton message={t.videoEditing.hero.message} ctaLocation="video_hero" className="w-full sm:w-auto">{t.videoEditing.hero.cta}</WhatsAppButton>
               <Link
-                to="/portafolio"
+                to="/portfolio"
+                onClick={() => trackConversion("portfolio_click", { destination: "portfolio", cta_location: "video_hero" })}
                 className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-brand-white backdrop-blur-md transition hover:border-brand-blue/60 hover:bg-brand-blue/10 sm:w-auto"
               >
                 {t.videoEditing.hero.secondaryCta}
@@ -72,6 +75,28 @@ export function VideoEditingPage() {
         className="py-12 md:py-16 bg-[radial-gradient(circle_at_center,rgba(30,123,255,0.025)_0%,transparent_62%)]"
       >
         <VideoPortfolioShowcase />
+        <div className="mt-9 text-center"><Link to="/portfolio" className="text-sm font-black text-brand-green">View Full Portfolio <ArrowRight className="inline" size={16} /></Link></div>
+      </Section>
+
+      <Section eyebrow="Video editing" title="What the work can include." subtitle="Each project starts from the footage and objective available, then is shaped for its intended format.">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {["Social Media Videos", "Real Estate Videos", "Promotional Videos", "Motion Design", "Brand Storytelling", "Vertical and horizontal formats"].map((item) => <div key={item} className="rounded-3xl border border-white/10 bg-white/[0.035] p-5 text-sm font-bold text-brand-white">{item}</div>)}
+        </div>
+      </Section>
+
+      <Section eyebrow="FAQ" title="A few useful details before we start.">
+        <div className="mx-auto grid max-w-4xl gap-4">
+          {[
+            ["What footage can I send?", "Share the footage you have along with the message and publishing channel you need."],
+            ["Can a video be vertical or horizontal?", "Yes. The portfolio includes both formats and each project can be prepared for its intended placement."],
+            ["How are revisions handled?", "Review needs are defined together with the scope before production begins."],
+            ["Can you add subtitles or music?", "Tell us what your project needs so it can be considered in the proposed scope."],
+          ].map(([question, answer]) => <article key={question} className="rounded-3xl border border-white/10 bg-white/[0.035] p-6"><h3 className="font-black text-brand-white">{question}</h3><p className="mt-3 text-sm leading-6 text-brand-muted">{answer}</p></article>)}
+        </div>
+      </Section>
+
+      <Section id="video-quote" eyebrow="Start a video project" title="Tell us what you need to communicate.">
+        <div className="mx-auto max-w-3xl"><ContactForm service="video" videoFields /></div>
       </Section>
 
       <section className="px-5 py-12 md:py-16">
@@ -87,7 +112,7 @@ export function VideoEditingPage() {
               {t.videoEditing.finalCta.subtitle}
             </p>
             <div className="mt-8">
-              <WhatsAppButton message={t.videoEditing.finalCta.message}>{t.videoEditing.finalCta.btn}</WhatsAppButton>
+              <WhatsAppButton message={t.videoEditing.finalCta.message} ctaLocation="video_final_cta">{t.videoEditing.finalCta.btn}</WhatsAppButton>
             </div>
           </div>
         </div>

@@ -2,6 +2,18 @@
 
 Este repositorio contiene la base de código del sitio web de JEGS Digital (`jegs.digital`), construido con React, TypeScript, Vite, Tailwind CSS v4, y Framer Motion.
 
+## Eventos de conversión
+
+El contenedor GTM `GTM-5QS5HC2X` recibe eventos mediante `window.dataLayer`. Configure GA4, Meta Pixel u otros destinos dentro de GTM; este repositorio no incluye IDs adicionales.
+
+- `whatsapp_click`: `page_path`, `cta_location`.
+- `lead_form_submit`: `page_path`, `service`, `form_name`.
+- `quote_cta_click`: `page_path`, `service`, `cta_location`.
+- `portfolio_click`: `page_path`, `destination`, `cta_location` cuando corresponde.
+- `video_play`: `page_path`, `video_title`.
+
+Los eventos no contienen datos personales de los formularios. Validarlos con GTM Preview después del despliegue.
+
 ---
 
 ## Estructura del Proyecto

@@ -6,6 +6,7 @@ import { useEffect } from "react";
  */
 export function usePageMeta(title: string, description: string) {
   useEffect(() => {
+    const url = `https://jegs.digital${window.location.pathname}`;
     if (title) {
       document.title = `${title} | JEGS Digital`;
     }
@@ -19,5 +20,16 @@ export function usePageMeta(title: string, description: string) {
       }
       metaDesc.setAttribute('content', description);
     }
+    const update = (selector: string, attribute: string, value: string) => {
+      const element = document.querySelector(selector);
+      element?.setAttribute(attribute, value);
+    };
+    update('link[rel="canonical"]', 'href', url);
+    update('meta[property="og:url"]', 'content', url);
+    update('meta[property="og:title"]', 'content', `${title} | JEGS Digital`);
+    update('meta[property="og:description"]', 'content', description);
+    update('meta[name="twitter:url"]', 'content', url);
+    update('meta[name="twitter:title"]', 'content', `${title} | JEGS Digital`);
+    update('meta[name="twitter:description"]', 'content', description);
   }, [title, description]);
 }

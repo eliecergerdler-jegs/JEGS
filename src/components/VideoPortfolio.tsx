@@ -5,6 +5,7 @@ import { useLanguage } from "../contexts/useLanguage";
 import type { VideoPortfolioProject } from "../data/videoPortfolio";
 import { featuredVideoProject, secondaryVideoProjects, verticalVideoProjects } from "../data/videoPortfolio";
 import { useInteractiveCard } from "../hooks/useInteractiveCard";
+import { trackConversion } from "../lib/analytics";
 
 type VideoGalleryVariant = "hero" | "home";
 
@@ -348,6 +349,7 @@ function VimeoVideoModal({ project, onClose }: { project: VideoPortfolioProject 
 
   useEffect(() => {
     if (!project) return;
+    trackConversion("video_play", { video_title: project.title.en });
     const previousActiveElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const dialog = dialogRef.current;
     dialog?.focus();

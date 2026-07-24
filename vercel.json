@@ -1,5 +1,12 @@
 {
   "redirects": [
+    { "source": "/portafolio", "destination": "/portfolio", "permanent": true },
+    { "source": "/portafolio/:id", "destination": "/portfolio/:id", "permanent": true },
+    { "source": "/contacto", "destination": "/contact", "permanent": true },
+    { "source": "/servicios", "destination": "/web-design", "permanent": true },
+    { "source": "/web", "destination": "/web-design", "permanent": true },
+    { "source": "/video", "destination": "/video-editing", "permanent": true },
+    { "source": "/redes", "destination": "/", "permanent": true },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.jegs.digital" }],

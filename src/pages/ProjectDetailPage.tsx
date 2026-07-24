@@ -18,14 +18,14 @@ export function ProjectDetailPage() {
   );
 
   if (!project) {
-    return <Navigate to="/portafolio" replace />;
+    return <Navigate to="/portfolio" replace />;
   }
 
   return (
     <>
       <div className="pt-24 pb-12 md:pt-32 md:pb-16 px-5 max-w-5xl mx-auto">
         <Link 
-          to="/portafolio" 
+          to="/portfolio"
           className="inline-flex items-center gap-2 text-sm font-bold text-brand-muted hover:text-brand-green transition-colors mb-8"
         >
           <ArrowLeft size={16} />

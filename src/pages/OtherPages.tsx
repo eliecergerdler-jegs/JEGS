@@ -1,29 +1,35 @@
 import { ShieldCheck, Rocket, Sparkles, MessageCircle, Mail, ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { PageHero } from "../components/PageHero";
 import { Section } from "../components/Section";
 import { FinalCta } from "./Home";
-import { PortfolioGrid, WebPortfolioHero } from "../components/Portfolio";
+import { PortfolioGrid } from "../components/Portfolio";
+import { VideoPortfolioShowcase } from "../components/VideoPortfolio";
+import { ContactForm } from "../components/ContactForm";
+import { trackConversion } from "../lib/analytics";
 import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function PortfolioPage() {
-  const { t } = useLanguage();
-
-  usePageMeta(t.portfolioPage.metaTitle, t.portfolioPage.metaDescription);
+  const { language } = useLanguage();
+  const [filter, setFilter] = useState<"all" | "web" | "video">("all");
+  const isEs = language === "es";
+  usePageMeta(isEs ? "Portafolio" : "Portfolio", isEs ? "Trabajos seleccionados de diseño web y edición de video de JEGS Digital." : "Selected web design and video editing work from JEGS Digital.");
 
   return (
     <>
-      <WebPortfolioHero />
-      <Section
-        id="web-portfolio"
-        eyebrow={t.portfolioPage.portfolio.eyebrow}
-        title={t.portfolioPage.portfolio.title}
-        subtitle={t.portfolioPage.portfolio.subtitle}
-        className="pb-16 pt-10 md:pb-24 md:pt-14"
-      >
-        <PortfolioGrid />
-      </Section>
-      <FinalCta />
+      <section className="px-5 py-16 text-center md:py-24">
+        <p className="text-xs font-black uppercase tracking-[.3em] text-brand-green">JEGS Digital</p>
+        <h1 className="mt-4 text-4xl font-black tracking-tight text-brand-white md:text-6xl">{isEs ? "Nuestro trabajo" : "Our Work"}</h1>
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-brand-muted">{isEs ? "Experiencias digitales y contenido audiovisual creados para comunicar con claridad." : "Digital experiences and audiovisual content created to communicate with clarity."}</p>
+        <div className="mt-8 flex flex-wrap justify-center gap-2" aria-label="Portfolio categories">
+          {(["all", "web", "video"] as const).map(item => <button key={item} type="button" aria-pressed={filter === item} onClick={() => setFilter(item)} className={`rounded-xl px-4 py-2 text-sm font-bold transition ${filter === item ? "bg-brand-green text-brand-bg" : "border border-white/10 bg-white/5 text-brand-white"}`}>{item === "all" ? "All" : item === "web" ? "Web Design" : "Video Editing"}</button>)}
+        </div>
+      </section>
+      {(filter === "all" || filter === "web") && <Section id="web-portfolio" eyebrow="Web Design" title={isEs ? "Proyectos web" : "Web projects"} className="py-12"><PortfolioGrid /></Section>}
+      {(filter === "all" || filter === "video") && <Section id="video-portfolio" eyebrow="Video Editing" title={isEs ? "Proyectos de video" : "Video projects"} subtitle={isEs ? "Una selección de piezas en formatos verticales y horizontales." : "A selection of work in vertical and horizontal formats."} className="py-12"><VideoPortfolioShowcase /></Section>}
+      <section className="px-5 pb-16"><div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 text-center sm:flex-row"><Link className="text-sm font-black text-brand-green" to="/web-design" onClick={() => trackConversion("portfolio_click", { destination: "web-design" })}>View Web Design Services</Link><Link className="text-sm font-black text-brand-green" to="/video-editing" onClick={() => trackConversion("portfolio_click", { destination: "video-editing" })}>View Video Editing Services</Link><Link className="text-sm font-black text-brand-green" to="/contact" onClick={() => trackConversion("portfolio_click", { destination: "contact" })}>Contact Us</Link></div></section>
     </>
   );
 }
@@ -74,7 +80,7 @@ function InstagramIcon({ size = 24 }) {
 }
 
 export function ContactPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   usePageMeta(t.contact.title, t.contact.subtitle);
   const whatsappMessage = encodeURIComponent(t.home.finalCta.message);
 
@@ -109,6 +115,9 @@ export function ContactPage() {
             href="https://www.instagram.com/jegs.digital/" 
           />
         </div>
+      </Section>
+      <Section id="contact-form" eyebrow="Contact" title={language === "es" ? "Cuéntanos sobre tu proyecto." : "Tell us about your project."}>
+        <div className="mx-auto max-w-3xl"><ContactForm /></div>
       </Section>
     </>
   );

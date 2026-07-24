@@ -23,11 +23,10 @@ export function Header() {
 
   const navLinks = [
     { path: "/", label: t.header.nav.home },
-    { path: "/servicios", label: t.header.nav.services },
-    { path: "/portafolio", label: t.header.nav.webPortfolio },
-    { path: "/video-editing", label: t.header.nav.videoPortfolio },
-    { path: "/sobre-jegs", label: t.header.nav.about },
-    { path: "/contacto", label: t.header.nav.contact },
+    { path: "/portfolio", label: language === "es" ? "Portafolio" : "Portfolio" },
+    { path: "/web-design", label: "Web Design" },
+    { path: "/video-editing", label: "Video Editing" },
+    { path: "/contact", label: t.header.nav.contact },
   ];
   const isNavActive = (path: string) =>
     path === "/" ? location.pathname === path : location.pathname === path || location.pathname.startsWith(`${path}/`);

@@ -1,16 +1,14 @@
 import { lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/Home";
 
 // Lazy loaded page components
-const Services = lazy(() => import("./pages/Services").then(m => ({ default: m.Services })));
-const DetailPage = lazy(() => import("./pages/DetailPage").then(m => ({ default: m.DetailPage })));
 const VideoEditingPage = lazy(() => import("./pages/VideoEditingPage").then(m => ({ default: m.VideoEditingPage })));
 const PortfolioPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.PortfolioPage })));
 const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage").then(m => ({ default: m.ProjectDetailPage })));
-const AboutPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.AboutPage })));
 const ContactPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.ContactPage })));
+const WebDesignPage = lazy(() => import("./pages/WebDesignPage").then(m => ({ default: m.WebDesignPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
 
 function App() {
@@ -19,20 +17,28 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="servicios" element={<Services />} />
-          <Route path="web" element={<DetailPage type="web" />} />
-          <Route path="redes" element={<DetailPage type="social" />} />
-          <Route path="video" element={<DetailPage type="video" />} />
+          <Route path="web-design" element={<WebDesignPage />} />
           <Route path="video-editing" element={<VideoEditingPage />} />
-          <Route path="portafolio" element={<PortfolioPage />} />
-          <Route path="portafolio/:id" element={<ProjectDetailPage />} />
-          <Route path="sobre-jegs" element={<AboutPage />} />
-          <Route path="contacto" element={<ContactPage />} />
+          <Route path="portfolio" element={<PortfolioPage />} />
+          <Route path="portfolio/:id" element={<ProjectDetailPage />} />
+          <Route path="contact" element={<ContactPage />} />
+          <Route path="portafolio" element={<Navigate to="/portfolio" replace />} />
+          <Route path="portafolio/:id" element={<LegacyProjectRedirect />} />
+          <Route path="contacto" element={<Navigate to="/contact" replace />} />
+          <Route path="servicios" element={<Navigate to="/web-design" replace />} />
+          <Route path="web" element={<Navigate to="/web-design" replace />} />
+          <Route path="video" element={<Navigate to="/video-editing" replace />} />
+          <Route path="redes" element={<Navigate to="/" replace />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
+}
+
+function LegacyProjectRedirect() {
+  const id = window.location.pathname.split("/").pop();
+  return <Navigate to={`/portfolio/${id ?? ""}`} replace />;
 }
 
 

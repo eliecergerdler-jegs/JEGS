@@ -19,7 +19,7 @@ export function Home() {
       title: t.home.solution.cards.web.title,
       text: t.home.solution.cards.web.text,
       cta: t.home.solution.cards.web.cta,
-      page: "/web",
+      page: "/web-design",
       message: t.detail.web.message,
     },
     {
@@ -27,7 +27,7 @@ export function Home() {
       title: t.home.solution.cards.artes.title,
       text: t.home.solution.cards.artes.text,
       cta: t.home.solution.cards.artes.cta,
-      page: "/redes",
+      page: "/contact",
       message: t.detail.social.message,
     },
     {
@@ -35,7 +35,7 @@ export function Home() {
       title: t.home.solution.cards.video.title,
       text: t.home.solution.cards.video.text,
       cta: t.home.solution.cards.video.cta,
-      page: "/video",
+      page: "/video-editing",
       message: t.detail.video.message,
     },
   ];
@@ -180,7 +180,7 @@ function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <WhatsAppButton>{t.home.hero.ctaWhatsApp}</WhatsAppButton>
             <Link
-              to="/servicios"
+              to="/web-design"
               className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-brand-white transition hover:border-brand-blue/60 hover:bg-brand-blue/10 backdrop-blur-md"
             >
               {t.home.hero.ctaServices} <ArrowRight size={18} />
@@ -248,7 +248,7 @@ export function PortfolioPreview() {
       
       <div className="mt-12 text-center">
         <Link
-          to="/portafolio"
+          to="/portfolio"
           className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-bold text-brand-white transition hover:border-brand-blue/50 hover:bg-brand-blue/10"
         >
           {language === "es" ? "Ver Portafolio Completo" : "View Full Portfolio"} <ArrowRight size={16} />
