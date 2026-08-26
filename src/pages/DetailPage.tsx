@@ -65,7 +65,7 @@ export function DetailPage({ type }: { type: 'web' | 'social' | 'video' }) {
               animate={{ boxShadow: ['0 0 20px rgba(184,241,43,0.4)', '0 0 40px rgba(184,241,43,0.8)', '0 0 20px rgba(184,241,43,0.4)'] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <WhatsAppButton message={content.message}>{t.detail.quoteCta}</WhatsAppButton>
+              <WhatsAppButton message={content.message} ctaLocation="detail_page">{t.detail.quoteCta}</WhatsAppButton>
             </motion.div>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
@@ -78,6 +78,7 @@ export function DetailPage({ type }: { type: 'web' | 'social' | 'video' }) {
     </>
   );
 }
+
 
 function ListBlock({ title, items }: { title: string; items: string[] }) {
   const container = {
@@ -107,4 +108,3 @@ function ListBlock({ title, items }: { title: string; items: string[] }) {
     </div>
   );
 }
-

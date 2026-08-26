@@ -149,7 +149,7 @@ export function WebPortfolioHero() {
             {t.portfolioPage.hero.subtitle}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <WhatsAppButton message={t.portfolioPage.hero.message} className="w-full sm:w-auto">
+            <WhatsAppButton message={t.portfolioPage.hero.message} ctaLocation="portfolio" className="w-full sm:w-auto">
               {t.portfolioPage.hero.cta}
             </WhatsAppButton>
             <a

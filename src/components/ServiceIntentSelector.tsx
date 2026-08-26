@@ -141,6 +141,7 @@ export function ServiceIntentSelector() {
           
           <WhatsAppButton
             message={activeOption.message}
+            ctaLocation="service_selector"
             className="w-full sm:w-auto px-6 py-3 text-sm shadow-[0_0_20px_rgba(184,241,43,0.25)] shrink-0"
           >
             {t.home.selector.whatsappCta}

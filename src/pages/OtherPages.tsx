@@ -99,6 +99,7 @@ export function ContactPage() {
             text={t.contact.cards.whatsapp.text} 
             cta={t.contact.cards.whatsapp.cta} 
             href={`https://wa.me/584125738257?text=${whatsappMessage}`} 
+            onClick={() => trackConversion("whatsapp_click", { cta_location: "contact_card" })}
           />
           <ContactCard 
             icon={Mail} 
@@ -131,13 +132,15 @@ interface ContactCardProps {
   text: string;
   cta: string;
   href: string;
+  onClick?: () => void;
 }
 
-function ContactCard({ icon: Icon, title, text, cta, href }: ContactCardProps) {
+function ContactCard({ icon: Icon, title, text, cta, href, onClick }: ContactCardProps) {
   const isExternal = href.startsWith("http");
   return (
     <a 
-      href={href} 
+      href={href}
+      onClick={onClick}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[0.055]"
     >

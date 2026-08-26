@@ -3,6 +3,7 @@ import { Header } from "./Header";
 import { Glow } from "./Glow";
 import { ScrollToTop } from "./ScrollToTop";
 import { WhatsAppIcon } from "./WhatsAppIcon";
+import { trackConversion } from "../lib/analytics";
 import { Suspense } from "react";
 import { useLanguage } from "../contexts/useLanguage";
 
@@ -49,6 +50,7 @@ export function Layout() {
                 href={`https://wa.me/584125738257?text=${whatsappMessage}`} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                onClick={() => trackConversion("whatsapp_click", { cta_location: "footer" })}
                 className="text-brand-green hover:text-brand-green/80 transition-colors"
               >
                 WhatsApp
@@ -72,6 +74,7 @@ export function Layout() {
         href={`https://wa.me/584125738257?text=${whatsappMessage}`}
         target="_blank" 
         rel="noopener noreferrer"
+        onClick={() => trackConversion("whatsapp_click", { cta_location: "mobile_floating" })}
         aria-label={t.common.whatsappFloatLabel}
         className="group fixed bottom-5 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-brand-green px-4 text-sm font-black text-brand-bg shadow-[0_0_28px_rgba(184,241,43,.35)] transition-all duration-300 ease-out active:scale-95 hover:scale-[1.03] hover:shadow-[0_0_32px_rgba(184,241,43,.5)] md:hidden"
       >

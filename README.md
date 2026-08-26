@@ -7,7 +7,7 @@ Este repositorio contiene la base de código del sitio web de JEGS Digital (`jeg
 El contenedor GTM `GTM-5QS5HC2X` recibe eventos mediante `window.dataLayer`. Configure GA4, Meta Pixel u otros destinos dentro de GTM; este repositorio no incluye IDs adicionales.
 
 - `whatsapp_click`: `page_path`, `cta_location`.
-- `lead_form_submit`: `page_path`, `service`, `form_name`.
+- `generate_lead`: `page_path`, `service`, `form_name`, `lead_source`.
 - `quote_cta_click`: `page_path`, `service`, `cta_location`.
 - `portfolio_click`: `page_path`, `destination`, `cta_location` cuando corresponde.
 - `video_play`: `page_path`, `video_title`.

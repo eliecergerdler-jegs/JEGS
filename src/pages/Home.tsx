@@ -178,7 +178,7 @@ function Hero() {
             {t.home.hero.subtitle}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <WhatsAppButton>{t.home.hero.ctaWhatsApp}</WhatsAppButton>
+            <WhatsAppButton ctaLocation="home_hero">{t.home.hero.ctaWhatsApp}</WhatsAppButton>
             <Link
               to="/web-design"
               className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-brand-white transition hover:border-brand-blue/60 hover:bg-brand-blue/10 backdrop-blur-md"
@@ -221,7 +221,7 @@ export function ServiceCard({ service }: { service: ServiceType }) {
       <h3 className="text-xl font-black">{service.title}</h3>
       <p className="mt-3 min-h-[90px] text-sm sm:text-base leading-relaxed text-brand-muted/95">{service.text}</p>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-        <WhatsAppButton message={service.message}>{service.cta}</WhatsAppButton>
+        <WhatsAppButton message={service.message} ctaLocation="home_service">{service.cta}</WhatsAppButton>
         <Link
           to={service.page}
           className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-bold text-brand-white transition hover:border-brand-blue/50 hover:bg-brand-blue/10"
@@ -290,7 +290,7 @@ export function FinalCta() {
             {t.home.finalCta.subtitle}
           </p>
           <div className="mt-8">
-            <WhatsAppButton message={t.home.finalCta.message}>{t.home.finalCta.btn}</WhatsAppButton>
+            <WhatsAppButton message={t.home.finalCta.message} ctaLocation="home_final_cta">{t.home.finalCta.btn}</WhatsAppButton>
           </div>
         </div>
       </div>

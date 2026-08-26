@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import { useLanguage } from "../contexts/useLanguage";
 import { usePageMeta } from "../hooks/usePageMeta";
+import { trackConversion } from "../lib/analytics";
 
 export function NotFoundPage() {
   const { language, t } = useLanguage();
@@ -42,6 +43,7 @@ export function NotFoundPage() {
             href={`https://wa.me/584125738257?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackConversion("whatsapp_click", { cta_location: "not_found" })}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-green px-6 py-3.5 text-sm font-black text-brand-bg transition hover:scale-[1.02] shadow-[0_0_20px_rgba(184,241,43,0.3)]"
           >
             <MessageCircle size={16} />

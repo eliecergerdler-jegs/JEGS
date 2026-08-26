@@ -96,7 +96,7 @@ export function Header() {
               EN
             </button>
           </div>
-          <WhatsAppButton>{t.common.whatsappHeader}</WhatsAppButton>
+          <WhatsAppButton ctaLocation="header">{t.common.whatsappHeader}</WhatsAppButton>
         </div>
 
         <button 
@@ -161,7 +161,7 @@ export function Header() {
               </div>
             </div>
 
-            <WhatsAppButton className="mt-2 w-full">{t.common.whatsappFloat}</WhatsAppButton>
+            <WhatsAppButton ctaLocation="mobile_menu" className="mt-2 w-full">{t.common.whatsappFloat}</WhatsAppButton>
           </div>
         </div>
       )}

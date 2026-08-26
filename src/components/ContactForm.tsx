@@ -37,7 +37,11 @@ export function ContactForm({ service = "general", videoFields = false }: Contac
     const url = `https://wa.me/584125738257?text=${encodeURIComponent(`${introduction}\n\n${message}`)}`;
     window.open(url, "_blank", "noopener,noreferrer");
     setWhatsappUrl(url);
-    trackConversion("lead_form_submit", { service, form_name: `${service}_contact_form` });
+    trackConversion("generate_lead", {
+      service,
+      form_name: `${service}_contact_form`,
+      lead_source: "contact_form_whatsapp",
+    });
     setStatus("success");
     setError("");
   }
@@ -58,7 +62,7 @@ export function ContactForm({ service = "general", videoFields = false }: Contac
       {videoFields && <Field label={isEs ? "Enlace al material (opcional)" : "Link to Footage (optional)"} name="Footage Link" type="url" className={fieldClass} />}
       <label className="mt-5 block text-sm font-bold text-brand-white">{isEs ? "Detalles del proyecto" : "Project Details"}<textarea name="Project Details" required rows={5} className={fieldClass} placeholder={isEs ? "Cuéntanos sobre tu proyecto" : "Tell us about your project"} /></label>
       {status === "error" && <p role="alert" className="mt-4 text-sm text-red-300">{error}</p>}
-      {status === "success" && <p role="status" className="mt-4 text-sm text-brand-green">{isEs ? "Tu mensaje está listo en WhatsApp. Si no se abrió, " : "Your message is ready in WhatsApp. If it did not open, "}<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{isEs ? "abre WhatsApp manualmente" : "open WhatsApp manually"}</a>.</p>}
+      {status === "success" && <p role="status" className="mt-4 text-sm text-brand-green">{isEs ? "Tu mensaje está listo en WhatsApp. Si no se abrió, " : "Your message is ready in WhatsApp. If it did not open, "}<a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={() => trackConversion("whatsapp_click", { cta_location: "contact_form_fallback" })} className="underline underline-offset-4">{isEs ? "abre WhatsApp manualmente" : "open WhatsApp manually"}</a>.</p>}
       <button type="submit" className="mt-6 inline-flex rounded-2xl bg-brand-green px-5 py-3 text-sm font-black text-brand-bg transition hover:scale-[1.02]">{isEs ? "Solicitar cotización" : "Request a Quote"}</button>
     </form>
   );
