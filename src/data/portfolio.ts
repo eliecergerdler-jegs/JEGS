@@ -20,6 +20,44 @@ export interface PortfolioProject {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
+    id: "asisa-mostoles",
+    title: "ASISA Móstoles",
+    category: {
+      en: "Insurance Agency / Health Services",
+      es: "Agencia de Seguros / Salud"
+    },
+    tags: {
+      en: ["Web Design", "WordPress", "Lead Capture"],
+      es: ["Diseño Web", "WordPress", "Captación de Leads"]
+    },
+    description: {
+      en: "A clean corporate website for an ASISA insurance office in Móstoles, focused on health insurance services, trust and local lead generation.",
+      es: "Un sitio web corporativo y limpio para una oficina de seguros ASISA en Móstoles, enfocado en servicios de salud, confianza y captación local de clientes."
+    },
+    image: "/Imagenes/Portfolio/Cards_Home/asisa-mostoles-1.webp",
+    fullImage: "/Imagenes/Portfolio/FullPages/asisa-mostoles-2.webp",
+    link: "/portfolio/asisa-mostoles"
+  },
+  {
+    id: "delsim-construction",
+    title: "DELSIM Construction",
+    category: {
+      en: "Construction / Corporate Website",
+      es: "Construcción / Sitio Corporativo"
+    },
+    tags: {
+      en: ["Web Design", "Corporate", "Lead Capture"],
+      es: ["Diseño Web", "Corporativo", "Captación de Leads"]
+    },
+    description: {
+      en: "A bold construction company website designed to showcase services, examples, company strengths and quote requests.",
+      es: "Un sitio web corporativo de construcción, sólido y visual, diseñado para mostrar servicios, proyectos, fortalezas de la empresa y solicitudes de presupuesto."
+    },
+    image: "/Imagenes/Portfolio/Cards_Home/delsim-construction-1.webp",
+    fullImage: "/Imagenes/Portfolio/FullPages/delsim-construction-2.webp",
+    link: "/portfolio/delsim-construction"
+  },
+  {
     id: "sapori-di-racchetta",
     title: "Sapori Di Racchetta",
     category: { en: "Sports Club / Apparel / Events", es: "Club Deportivo / Ropa / Eventos" },
