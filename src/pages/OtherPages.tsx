@@ -140,9 +140,9 @@ function ContactCard({ icon: Icon, title, text, cta, href, onClick }: ContactCar
       href={href}
       onClick={onClick}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition-colors hover:border-brand-green focus-visible:border-brand-green"
+      data-scroll-card="" className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition-colors hover:border-brand-green focus-visible:border-brand-green"
     >
-      <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-brand-blue/15 text-brand-muted transition-colors group-hover:border-brand-green group-hover:text-brand-green group-focus-visible:border-brand-green group-focus-visible:text-brand-green">
+      <div className="jegs-interactive-icon mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-brand-blue/15 text-brand-muted transition-colors group-hover:border-brand-green group-hover:text-brand-green group-focus-visible:border-brand-green group-focus-visible:text-brand-green">
         <Icon size={24} />
       </div>
       <h3 className="text-xl font-black text-brand-white">{title}</h3>

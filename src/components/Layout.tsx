@@ -7,10 +7,12 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 import { trackConversion } from "../lib/analytics";
 import { Suspense } from "react";
 import { useLanguage } from "../contexts/useLanguage";
+import { useScrollCardHighlight } from "../hooks/useScrollCardHighlight";
 
 export function Layout() {
   const { t, language } = useLanguage();
   const { pathname } = useLocation();
+  useScrollCardHighlight(pathname);
   if (pathname === "/" || pathname === "/events") return <HomeLayout />;
   const whatsappMessage = encodeURIComponent(t.home.finalCta.message);
 
