@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import { useOutletContext } from "react-router-dom";
 import { getHomeCopy } from "../data/homeCopy";
 
-export type HomeService = "shopify" | "wordpress" | "video" | "design" | "events";
+export type HomeService = "shopify" | "wordpress" | "react" | "video" | "design" | "events";
 export interface HomeQuote { service: HomeService; phase: number; brief: string }
 export interface HomeQuoteContext { quote: HomeQuote; setQuote: Dispatch<SetStateAction<HomeQuote>> }
 export const useHomeQuote = () => useOutletContext<HomeQuoteContext>();

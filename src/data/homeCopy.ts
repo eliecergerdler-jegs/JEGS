@@ -1,15 +1,15 @@
 export const homeCopy = {
   "title": [
-    "Shopify, diseño web y edición de video | JEGS Digital",
-    "Shopify, Web Design & Video Editing | JEGS Digital"
+    "Desarrollo web, Shopify y WordPress | JEGS Digital",
+    "Web Development, Shopify & WordPress | JEGS Digital"
   ],
   "description": [
-    "Soy Eliecer Gerdler. Desarrollo y personalizo sitios Shopify y WordPress, edito videos y diseño contenido para negocios. Conoce mi trabajo en JEGS Digital.",
-    "I’m Eliecer Gerdler. I build and customize Shopify and WordPress websites, edit videos and design content for businesses. Explore my work at JEGS Digital."
+    "Soy Eliecer Gerdler, desarrollador web. Creo y personalizo tiendas Shopify, sitios WordPress e interfaces con React para negocios. Conoce mis proyectos en JEGS Digital.",
+    "I’m Eliecer Gerdler, a web developer. I build and customize Shopify stores, WordPress websites and React interfaces for businesses. Explore my projects at JEGS Digital."
   ],
   "studio": [
-    "DESARROLLO WEB<br>Y ESTUDIO CREATIVO",
-    "WEB DEVELOPMENT<br>& CREATIVE STUDIO"
+    "DESARROLLO WEB<br>Y TIENDAS ONLINE",
+    "WEB DEVELOPMENT<br>& ONLINE STORES"
   ],
   "navservices": [
     "Servicios",
@@ -36,12 +36,12 @@ export const homeCopy = {
     "ELIECER GERDLER · FOUNDER OF JEGS"
   ],
   "h1": [
-    "Diseño web,<br>Shopify y video<br>para <span class=\"lime\">tu próximo<br>paso.</span>",
-    "Web design,<br>Shopify & video<br>for <span class=\"lime\">your next<br>move.</span>"
+    "Desarrollo web<br>y tiendas online<br>para <span class=\"lime\">tu próximo<br>paso.</span>",
+    "Web development<br>& online stores<br>for <span class=\"lime\">your next<br>move.</span>"
   ],
   "intro": [
-    "Soy <strong>Eliecer</strong>, desarrollador web y editor de video. Te ayudo a construir una web clara, mejorar tu tienda en línea y crear contenido que represente bien a tu negocio.",
-    "I’m <strong>Eliecer</strong>, a web developer and video editor. I help you build a clear website, improve your online store and create content that represents your business."
+    "Soy <strong>Eliecer</strong>, desarrollador web. Creo sitios con WordPress, personalizo tiendas Shopify y desarrollo interfaces con React para que tu negocio tenga una presencia digital clara y fácil de usar.",
+    "I’m <strong>Eliecer</strong>, a web developer. I build WordPress websites, customize Shopify stores and develop React interfaces to give your business a clear, easy-to-use digital presence."
   ],
   "herocta": [
     "Cuéntame tu proyecto",
@@ -56,8 +56,8 @@ export const homeCopy = {
     "Based in Caracas · Projects in Spanish & English"
   ],
   "role": [
-    "Desarrollador web y editor de video",
-    "Web developer & video editor"
+    "Desarrollador web · Shopify, WordPress y React",
+    "Web developer · Shopify, WordPress & React"
   ],
   "tools": [
     "HERRAMIENTAS CON LAS QUE<br>DOY FORMA A TUS IDEAS",
@@ -68,44 +68,44 @@ export const homeCopy = {
     "01 / WHAT I CAN HELP WITH"
   ],
   "servicesh": [
-    "Tu negocio necesita<br>algo más que verse bien.",
-    "Your business needs<br>more than good looks."
+    "Una web que responda<br>a lo que necesitas.",
+    "A website built<br>around your needs."
   ],
   "servicesp": [
-    "Web, comercio electrónico y contenido visual. Podemos trabajar una necesidad puntual o construir tu presencia digital por etapas.",
-    "Web, e-commerce and visual content. We can solve a specific need or build your digital presence step by step."
+    "Desde una página para presentar tu negocio hasta una tienda en línea o una interfaz a medida. Definimos la solución según tu proyecto.",
+    "From a website that introduces your business to an online store or a custom interface. We choose the right approach for your project."
   ],
   "webtitle": [
-    "Desarrollo web<br>y comercio electrónico",
-    "Web development<br>& e-commerce"
+    "Desarrollo<br>con React",
+    "React<br>development"
   ],
   "webp": [
-    "Sitios para presentar tus servicios y tiendas en línea con una experiencia de compra clara, adaptable y alineada a tu marca.",
-    "Websites that explain your services and online stores with a clear, responsive shopping experience aligned with your brand."
+    "Interfaces a medida para proyectos que necesitan componentes y una experiencia adaptada a su contenido.",
+    "Custom interfaces for projects that need reusable components and an experience tailored to their content."
   ],
   "web1": [
-    "Personalización de temas Shopify",
-    "Shopify theme customization"
+    "Interfaces y componentes reutilizables",
+    "Interfaces & reusable components"
   ],
   "web2": [
-    "Páginas de aterrizaje y sitios WordPress",
-    "Landing pages & WordPress websites"
+    "Diseño adaptable a móvil y escritorio",
+    "Layouts for mobile & desktop"
   ],
   "web3": [
-    "Mejoras en producto, carrito y móvil",
-    "Product, cart & mobile improvements"
+    "Ajustes y mejoras de interfaz",
+    "Interface updates & improvements"
   ],
   "webcta": [
-    "Hablemos de tu web",
-    "Let’s talk about your website"
+    "Hablemos de tu desarrollo",
+    "Let’s talk about your development project"
   ],
   "videotitle": [
-    "Edición de video<br>para negocios",
-    "Video editing<br>for business"
+    "Video y<br>animación",
+    "Video &<br>animation"
   ],
   "videop": [
-    "Transformo tu material grabado en piezas con estructura, ritmo y un mensaje fácil de seguir.",
-    "I turn your footage into pieces with structure, rhythm and a clear message."
+    "Edición de material grabado y piezas animadas para presentar tu negocio, tus productos o una celebración.",
+    "Footage editing and animated pieces to showcase your business, products or a celebration."
   ],
   "video1": [
     "Reels, videos cortos y subtítulos",
@@ -116,8 +116,8 @@ export const homeCopy = {
     "Real estate & promotional videos"
   ],
   "video3": [
-    "Adaptaciones verticales y horizontales",
-    "Vertical & horizontal versions"
+    "Animaciones e invitaciones para eventos",
+    "Animations & event invitations"
   ],
   "videocta": [
     "Hablemos de tu video",
@@ -156,12 +156,12 @@ export const homeCopy = {
     "The work speaks.<br>Take a closer look."
   ],
   "workp": [
-    "Una selección de proyectos de mi portafolio. Explora por el tipo de trabajo que necesitas.",
-    "A selection of projects from my portfolio. Explore the type of work you need."
+    "Una selección de sitios web que he desarrollado. También puedes explorar mis trabajos de video y eventos.",
+    "A selection of websites I’ve developed. You can also explore my video and event projects."
   ],
   "tabweb": [
-    "Diseño web",
-    "Web design"
+    "Desarrollo web",
+    "Web development"
   ],
   "tabvideo": [
     "Video para negocios",
@@ -212,28 +212,28 @@ export const homeCopy = {
     "Explore events ↗"
   ],
   "aboutk": [
-    "03 / LA PERSONA DETRÁS DE JEGS",
-    "03 / THE PERSON BEHIND JEGS"
+    "04 / LA PERSONA DETRÁS DE JEGS",
+    "04 / THE PERSON BEHIND JEGS"
   ],
   "abouth": [
     "Tu proyecto tiene<br>nombre y contacto<br>directo: Eliecer.",
     "Your project has<br>a name and a direct<br>contact: Eliecer."
   ],
   "aboutp1": [
-    "Soy Eliecer Gerdler, desarrollador web y editor de video en Caracas. JEGS reúne mi trabajo técnico y creativo en un mismo lugar.",
-    "I’m Eliecer Gerdler, a web developer and video editor based in Caracas. JEGS brings my technical and creative work together."
+    "Soy Eliecer Gerdler, desarrollador web en Caracas. En JEGS ayudo a negocios a construir y mejorar su presencia digital con sitios web y tiendas en línea.",
+    "I’m Eliecer Gerdler, a web developer based in Caracas. At JEGS, I help businesses build and improve their digital presence with websites and online stores."
   ],
   "aboutp2": [
-    "Trabajo con Shopify, WordPress y desarrollo de interfaces web. También edito videos y diseño contenido para marcas. Primero entiendo qué necesitas; después definimos qué construir y cómo entregarlo.",
-    "I work with Shopify, WordPress and frontend development. I also edit videos and design content for brands. First, I understand what you need. Then we define what to build and how to deliver it."
+    "Trabajo con Shopify, WordPress y React. Primero entiendo qué necesitas; después definimos qué construir y cómo entregarlo. Cuando el proyecto lo requiere, también puedo ayudarte con video y contenido visual.",
+    "I work with Shopify, WordPress and React. First, I understand what you need. Then we define what to build and how to deliver it. When your project calls for it, I can also help with video and visual content."
   ],
   "aboutnote": [
-    "ELIECER GERDLER · DESARROLLO Y CREATIVIDAD",
-    "ELIECER GERDLER · DEVELOPMENT & CREATIVITY"
+    "ELIECER GERDLER · DESARROLLO WEB",
+    "ELIECER GERDLER · WEB DEVELOPMENT"
   ],
   "founder": [
-    "FUNDADOR · DESARROLLO WEB Y PRODUCCIÓN CREATIVA",
-    "FOUNDER · WEB DEVELOPMENT & CREATIVE PRODUCTION"
+    "FUNDADOR · DESARROLLADOR WEB",
+    "FOUNDER · WEB DEVELOPER"
   ],
   "point1": [
     "↗ Comunicación directa",
@@ -248,8 +248,8 @@ export const homeCopy = {
     "↗ Review before delivery"
   ],
   "processk": [
-    "04 / ASÍ TRABAJAMOS",
-    "04 / HOW WE WORK"
+    "05 / ASÍ TRABAJAMOS",
+    "05 / HOW WE WORK"
   ],
   "processh": [
     "Claridad desde<br>la primera conversación.",
@@ -276,8 +276,8 @@ export const homeCopy = {
     "Build and review"
   ],
   "step3p": [
-    "Desarrollo o edito la pieza, revisamos los detalles y preparo la entrega acordada.",
-    "I build or edit the piece, we review the details and I prepare the agreed delivery."
+    "Construyo la solución acordada, revisamos los detalles y preparo la entrega.",
+    "I build the agreed solution, we review the details and I prepare the delivery."
   ],
   "contactk": [
     "TU SIGUIENTE PASO",
@@ -304,8 +304,8 @@ export const homeCopy = {
     "Web / WordPress"
   ],
   "video": [
-    "Video",
-    "Video"
+    "Video / Animación",
+    "Video / Animation"
   ],
   "design": [
     "Diseño",
@@ -372,12 +372,12 @@ export const homeCopy = {
     "Based on scope, available material and revisions needed. We agree on deliverables, price and schedule before starting. Timing also depends on receiving content and approvals."
   ],
   "q3": [
-    "¿Puedo enviarte videos grabados por mí?",
-    "Can I send you footage I recorded?"
+    "¿Puedes crear una web nueva o mejorar la que ya tengo?",
+    "Can you build a new website or improve my existing one?"
   ],
   "a3": [
-    "Sí. Envíame una muestra del material, una referencia y el canal donde lo publicarás. Con eso podemos definir formato, duración, subtítulos y cantidad de piezas.",
-    "Yes. Send a sample of your footage, a reference and where you’ll publish it. We can then define format, duration, captions and the number of pieces."
+    "Sí. Puedo trabajar un sitio WordPress desde cero, ajustar una web existente o desarrollar una interfaz con React. Revisamos tu objetivo y lo que ya tienes para definir la solución y el alcance.",
+    "Yes. I can build a WordPress website from scratch, update an existing site or develop a React interface. We review your goals and what you already have to define the approach and scope."
   ],
   "q4": [
     "¿Trabajas con clientes fuera de Venezuela?",
@@ -388,8 +388,8 @@ export const homeCopy = {
     "Yes. We can coordinate your project remotely in Spanish or English, agreeing on communication channels and deliveries from the start."
   ],
   "footerp": [
-    "Desarrollo web, Shopify y producción creativa.<br>Desde Caracas para proyectos en Latinoamérica, España y Estados Unidos.",
-    "Web development, Shopify & creative production.<br>From Caracas, for projects in Latin America, Spain & the United States."
+    "Desarrollo web y tiendas online.<br>Shopify, WordPress y React · Desde Caracas para proyectos en español e inglés.",
+    "Web development & online stores.<br>Shopify, WordPress & React · Based in Caracas, working in Spanish and English."
   ],
   "close": [
     "Cerrar proyecto",
@@ -463,13 +463,9 @@ export const homeCopy = {
     "Eliecer Gerdler, fundador de JEGS Digital",
     "Eliecer Gerdler, founder of JEGS Digital"
   ],
-  "motiontools": [
-    "Video y animación",
-    "Video & Motion"
-  ],
   "designlabel": [
-    "03 / DISEÑO",
-    "03 / DESIGN"
+    "02 / DISEÑO",
+    "02 / DESIGN"
   ],
   "estatetag": [
     "Inmobiliario",
@@ -518,6 +514,70 @@ export const homeCopy = {
   "aboutphotoalt": [
     "Eliecer Gerdler con suéter azul sosteniendo un MacBook Pro",
     "Eliecer Gerdler in a blue sweater holding a MacBook Pro"
+  ],
+  "shopifytitle": [
+    "Tiendas<br>Shopify",
+    "Shopify<br>stores"
+  ],
+  "shopifyp": [
+    "Personalizo tu tienda para presentar mejor tus productos y facilitar el recorrido de compra en móvil y escritorio.",
+    "I customize your store to present your products clearly and make shopping easier on mobile and desktop."
+  ],
+  "shopify1": [
+    "Personalización de temas y secciones",
+    "Theme & section customization"
+  ],
+  "shopify2": [
+    "Páginas de producto y carrito",
+    "Product pages & cart"
+  ],
+  "shopify3": [
+    "Ajustes de diseño y experiencia móvil",
+    "Design & mobile experience improvements"
+  ],
+  "shopifycta": [
+    "Hablemos de tu tienda",
+    "Let’s talk about your store"
+  ],
+  "wordpresstitle": [
+    "Sitios web<br>con WordPress",
+    "WordPress<br>websites"
+  ],
+  "wordpressp": [
+    "Sitios para explicar tus servicios, mostrar tu trabajo y darle al visitante una ruta clara hacia el contacto.",
+    "Websites that explain your services, showcase your work and give visitors a clear path to get in touch."
+  ],
+  "wordpress1": [
+    "Sitios corporativos y de servicios",
+    "Business & service websites"
+  ],
+  "wordpress2": [
+    "Páginas de aterrizaje",
+    "Landing pages"
+  ],
+  "wordpress3": [
+    "Actualización de sitios existentes",
+    "Existing website updates"
+  ],
+  "wordpresscta": [
+    "Hablemos de tu web",
+    "Let’s talk about your website"
+  ],
+  "creativek": [
+    "03 / SERVICIOS COMPLEMENTARIOS",
+    "03 / COMPLEMENTARY SERVICES"
+  ],
+  "creativeh": [
+    "También puedo ayudarte<br>con tu contenido visual.",
+    "I can also help<br>with your visual content."
+  ],
+  "creativep": [
+    "Si tu proyecto también necesita video, animación o piezas para redes sociales, podemos trabajarlos como complemento de tu web o como un servicio puntual.",
+    "If your project also needs video, animation or social media graphics, we can create them alongside your website or as a standalone service."
+  ],
+  "react": [
+    "Desarrollo / React",
+    "Development / React"
   ]
 } as const;
 

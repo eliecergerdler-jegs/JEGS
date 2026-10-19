@@ -21,7 +21,7 @@ export default defineConfig({
       manifest: {
         name: 'JEGS Digital',
         short_name: 'JEGS',
-        description: 'Web Development, Video Editing & AI Content services',
+        description: 'Web development and online stores with Shopify, WordPress and React',
         display: 'standalone',
         start_url: '/',
         scope: '/',
