@@ -32,6 +32,15 @@
 @media(max-width:600px){.jegs-home .back-to-top{right:16px;bottom:max(78px,calc(env(safe-area-inset-bottom) + 62px))}}
 @media(prefers-reduced-motion:reduce){.jegs-home .service:hover,.jegs-home .service:focus-within{transform:none}}
 .jegs-home{min-height:100vh;width:100%;isolation:isolate}
+/* Reuse the service pages' navy palette and ambient background on the home. */
+.jegs-home.home-blue{--bg:var(--color-brand-bg);--panel:var(--color-brand-bg2);--line:#b8c4d929;--white:var(--color-brand-white);--muted:var(--color-brand-muted);--blue:var(--color-brand-blue)}
+.jegs-home.home-blue header{background:color-mix(in srgb,var(--bg) 95%,transparent)}
+.jegs-home.home-blue .navlinks.open,.jegs-home.home-blue .service,.jegs-home.home-blue .contact-panel{background:var(--panel)}
+.jegs-home.home-blue .contact-form{background:var(--bg);border-color:var(--line)}
+.jegs-home.home-blue .contact-form input,.jegs-home.home-blue .contact-form select,.jegs-home.home-blue .option{background:var(--panel);border-color:var(--line)}
+.jegs-home.home-blue .option[aria-pressed=true]{background:var(--lime);border-color:var(--lime)}
+.jegs-home.home-blue .project-image,.jegs-home.home-blue .caption,.jegs-home.home-blue .back-to-top{background:var(--panel)}
+.jegs-home.home-blue .contact-panel,.jegs-home.home-blue .event-hint{border-color:var(--line)}
 .jegs-home .service-options button{line-height:1.4}
 .jegs-home dialog::backdrop{background:#000c}
 .jegs-home .navlinks.open{z-index:30}
