@@ -54,3 +54,7 @@
 .jegs-home a,.jegs-home button{touch-action:manipulation}
 
 .jegs-home .languages button{font:inherit;border:0;background:none;color:inherit;padding:5px 2px;cursor:pointer}.jegs-home .languages button[aria-pressed=true]{color:var(--lime)}.jegs-home .contact-form .field-label{font-size:10px;color:#c4d1bb;margin:0 0 9px}.jegs-home .whatsapp-icon{width:23px;height:23px;flex:none}.jegs-home .events-projects{margin:48px 0}.jegs-home .events-projects .project-image{object-fit:contain;background:#111616;height:320px}.jegs-home .events-details{max-width:650px}
+
+.jegs-home .service-icon svg{display:block;width:22px;height:22px;fill:currentColor}
+.jegs-home .service-icon--shopify svg{color:#95bf47}
+.jegs-home .service-icon--wordpress svg{color:#21759b}
