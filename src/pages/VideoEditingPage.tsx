@@ -57,8 +57,8 @@ export function VideoEditingPage() {
             { icon: Scissors, title: t.videoEditing.process.cards.edit.title, text: t.videoEditing.process.cards.edit.text },
             { icon: Film, title: t.videoEditing.process.cards.delivery.title, text: t.videoEditing.process.cards.delivery.text },
           ].map(({ icon: Icon, title, text }) => (
-            <div key={title} className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 transition-colors hover:border-brand-green">
-              <div className="mb-5 grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-brand-blue/15 text-brand-muted transition-colors group-hover:border-brand-green group-hover:text-brand-green">
+            <div key={title} data-scroll-card="" className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 transition-colors hover:border-brand-green">
+              <div className="jegs-interactive-icon mb-5 grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-brand-blue/15 text-brand-muted transition-colors group-hover:border-brand-green group-hover:text-brand-green">
                 <Icon size={23} aria-hidden="true" />
               </div>
               <h3 className="text-xl font-black text-brand-white">{title}</h3>

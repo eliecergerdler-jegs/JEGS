@@ -149,7 +149,26 @@ a:focus-visible, button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   .jegs-interactive-card,
+  [data-scroll-card],
   .jegs-interactive-icon {
     transition: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .jegs-interactive-card.is-scroll-active,
+  [data-scroll-card].is-scroll-active,
+  .jegs-home .service.is-scroll-active {
+    border-color: var(--color-brand-green);
+  }
+
+  .is-scroll-active .jegs-interactive-icon,
+  .jegs-home .service.is-scroll-active .service-icon {
+    color: var(--color-brand-green);
+    border-color: var(--color-brand-green);
+  }
+
+  .jegs-home .project.is-scroll-active .project-image {
+    border-color: var(--color-brand-green);
   }
 }
