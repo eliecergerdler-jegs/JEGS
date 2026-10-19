@@ -9,6 +9,7 @@ import { trackConversion } from "../lib/analytics";
 import { ScrollToTop } from "./ScrollToTop";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { HomeText } from "./HomeText";
+import { Glow } from "./Glow";
 import "../home.css";
 
 export function HomeLayout() {
@@ -26,7 +27,8 @@ export function HomeLayout() {
     return () => window.removeEventListener("keydown", close);
   }, [open]);
 
-  return <div className="jegs-home">
+  return <div className={`jegs-home${pathname === "/" ? " home-blue" : ""}`}>
+    {pathname === "/" && <Glow />}
     <header><div className="wrap nav">
       <Link className="brand" to="/" aria-label="JEGS Digital" onClick={() => setOpen(false)}><img src="/images/home/logo.webp" alt={c.logoalt} width={52} height={64} /><small><HomeText text={c.studio} /></small></Link>
       <nav id="home-navigation" className={`navlinks${open ? " open" : ""}`} aria-label={language === "es" ? "Navegación principal" : "Main navigation"}>
