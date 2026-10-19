@@ -24,8 +24,8 @@ export function Header() {
   const navLinks = [
     { path: "/", label: t.header.nav.home },
     { path: "/portfolio", label: language === "es" ? "Portafolio" : "Portfolio" },
-    { path: "/web-design", label: "Web Design" },
-    { path: "/video-editing", label: "Video Editing" },
+    { path: "/web-design", label: language === "es" ? "Diseño web" : "Web Design" },
+    { path: "/video-editing", label: language === "es" ? "Edición de video" : "Video Editing" },
     { path: "/contact", label: t.header.nav.contact },
   ];
   const isNavActive = (path: string) =>
@@ -80,7 +80,7 @@ export function Header() {
                   ? "bg-brand-blue/20 text-brand-white shadow-[0_0_12px_rgba(30,123,255,0.3)] border border-brand-blue/30"
                   : "text-brand-muted hover:text-brand-white border border-transparent"
               }`}
-              aria-label="Cambiar a Español"
+              aria-label={language === "es" ? "Cambiar a español" : "Switch to Spanish"}
             >
               ES
             </button>
@@ -91,7 +91,7 @@ export function Header() {
                   ? "bg-brand-blue/20 text-brand-white shadow-[0_0_12px_rgba(30,123,255,0.3)] border border-brand-blue/30"
                   : "text-brand-muted hover:text-brand-white border border-transparent"
               }`}
-              aria-label="Switch to English"
+              aria-label={language === "es" ? "Cambiar a inglés" : "Switch to English"}
             >
               EN
             </button>
@@ -102,7 +102,7 @@ export function Header() {
         <button 
           className="rounded-xl border border-white/10 p-2 text-brand-white lg:hidden" 
           onClick={() => setOpen(!open)}
-          aria-label={open ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+          aria-label={open ? (language === "es" ? "Cerrar menú de navegación" : "Close navigation menu") : (language === "es" ? "Abrir menú de navegación" : "Open navigation menu")}
           aria-expanded={open}
           aria-controls="mobile-navigation"
         >

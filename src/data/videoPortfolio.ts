@@ -49,7 +49,7 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Real Estate / Video Marketing",
-      es: "Real Estate / Video Marketing",
+      es: "Inmobiliario / Video promocional",
     },
     description: {
       en: "Promotional real estate video edited for a South of Fifth property presentation.",
@@ -83,7 +83,7 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Brand Storytelling",
-      es: "Storytelling de marca",
+      es: "Narrativa de marca",
     },
     compactCategory: {
       en: "Brand",
@@ -120,11 +120,11 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Motion Design",
-      es: "Motion design",
+      es: "Animación",
     },
     compactCategory: {
       en: "Motion",
-      es: "Motion",
+      es: "Animación",
     },
     description: {
       en: "Personalized animated invitation designed for a birthday celebration.",
@@ -157,7 +157,7 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Healthcare / Social Media",
-      es: "Salud / Social media",
+      es: "Salud / Redes sociales",
     },
     compactCategory: {
       en: "Healthcare",
@@ -190,7 +190,7 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Real Estate / Social Media",
-      es: "Real Estate / Social media",
+      es: "Inmobiliario / Redes sociales",
     },
     description: {
       en: "Vertical realtor promotional video edited for a Miami Beach property presentation.",
@@ -218,7 +218,7 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Motion Design",
-      es: "Motion design",
+      es: "Animación",
     },
     description: {
       en: "Animated invitation created for a 15th birthday celebration.",
@@ -246,7 +246,7 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Motion Design",
-      es: "Motion design",
+      es: "Animación",
     },
     description: {
       en: "Animated invitation designed for a Hot Wheels themed birthday celebration.",
@@ -274,7 +274,7 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
     },
     category: {
       en: "Healthcare / Social Media",
-      es: "Salud / Social media",
+      es: "Salud / Redes sociales",
     },
     description: {
       en: "Social content edited to communicate a professional facial harmonization service.",
@@ -295,6 +295,6 @@ export const videoPortfolioProjects: VideoPortfolioProject[] = [
 ];
 
 export const featuredVideoProject = videoPortfolioProjects.find((project) => project.isFeatured) ?? videoPortfolioProjects[0];
-export const highlightVideoProjects = videoPortfolioProjects.filter((project) => project.showInHighlight);
-export const secondaryVideoProjects = highlightVideoProjects.filter((project) => project.id !== featuredVideoProject.id);
-export const verticalVideoProjects = videoPortfolioProjects.filter((project) => project.id !== featuredVideoProject.id);
+export const highlightVideoProjects = videoPortfolioProjects.filter((project) => project.showInHighlight && !project.id.includes("birthday-invitation"));
+export const secondaryVideoProjects = highlightVideoProjects.filter((project) => project.id !== featuredVideoProject.id && !project.id.includes("birthday-invitation"));
+export const verticalVideoProjects = videoPortfolioProjects.filter((project) => project.id !== featuredVideoProject.id && !project.id.includes("birthday-invitation"));
