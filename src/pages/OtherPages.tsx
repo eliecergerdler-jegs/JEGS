@@ -124,8 +124,6 @@ export function ContactPage() {
   );
 }
 
-import { motion } from "framer-motion";
-
 interface ContactCardProps {
   icon: React.ComponentType<{ size?: number }>;
   title: string;
@@ -142,18 +140,14 @@ function ContactCard({ icon: Icon, title, text, cta, href, onClick }: ContactCar
       href={href}
       onClick={onClick}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[0.055]"
+      className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition-colors hover:border-brand-green focus-visible:border-brand-green"
     >
-      <motion.div 
-        className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green shadow-lg"
-        whileHover={{ rotateY: 180, scale: 1.1 }}
-        transition={{ duration: 0.6, type: "spring" }}
-      >
+      <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-brand-blue/15 text-brand-muted transition-colors group-hover:border-brand-green group-hover:text-brand-green group-focus-visible:border-brand-green group-focus-visible:text-brand-green">
         <Icon size={24} />
-      </motion.div>
+      </div>
       <h3 className="text-xl font-black text-brand-white">{title}</h3>
       <p className="mt-2 text-brand-muted">{text}</p>
-      <p className="mt-5 inline-flex items-center gap-2 text-sm font-black text-brand-green transition-transform group-hover:translate-x-1">
+      <p className="mt-5 inline-flex items-center gap-2 text-sm font-black text-brand-green">
         {cta} <ArrowRight size={16} />
       </p>
     </a>
