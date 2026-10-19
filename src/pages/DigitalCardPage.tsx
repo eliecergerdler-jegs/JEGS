@@ -205,9 +205,9 @@ export function DigitalCardPage() {
       `TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+${waNumber}`,
       `EMAIL;TYPE=WORK,INTERNET:${email}`,
       `URL:${siteUrl}`,
-      `X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/jegs.digital/`,
-      `X-SOCIALPROFILE;TYPE=linkedin:${linkedinUrl}`,
-      "NOTE:Instagram @jegs.digital; LinkedIn @jegsdigitalVen; X @jegsdigitalVen",
+      "X-SOCIALPROFILE;TYPE=instagram;X-USER=jegs.digital:https://www.instagram.com/jegs.digital/",
+      `X-SOCIALPROFILE;TYPE=linkedin;X-USER=jegsdigitalVen:${linkedinUrl}`,
+      "X-SOCIALPROFILE;TYPE=twitter;X-USER=jegsdigitalVen:https://x.com/jegsdigitalVen",
       "END:VCARD",
     ].join("\r\n");
     const file = new Blob([vcard], { type: "text/vcard;charset=utf-8" });

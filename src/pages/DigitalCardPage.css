@@ -110,8 +110,17 @@
   .card-shell { width: min(100% - 40px, 520px); }
   .card-portrait-wrap { aspect-ratio: 1 / 1.02; }
 }
+@media (max-width: 430px) {
+  .digital-card { box-sizing: border-box; min-height: 100vh; min-height: 100svh; padding: 8px 0 10px; }
+  .card-portrait-wrap { aspect-ratio: 1 / .92; }
+  .card-services { padding-top: 12px; padding-bottom: 9px; }
+  .card-connection { padding-top: 8px; padding-bottom: 10px; }
+  .card-social-links { margin-top: 10px; }
+  .card-email-link { margin-top: 8px; }
+  .card-footer { padding-top: 54px; padding-bottom: 10px; }
+}
 @media (max-width: 360px) {
-  .digital-card { padding-top: 12px; }
+  .digital-card { padding-top: 8px; }
   .card-shell { width: min(100% - 20px, 520px); border-radius: 25px; }
   .card-hero { padding-right: 14px; padding-left: 14px; }
   .card-portrait-wrap { margin-right: -14px; margin-left: -14px; }
