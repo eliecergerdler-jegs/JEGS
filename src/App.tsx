@@ -1,7 +1,8 @@
 import { lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./components/Layout";
-import { Home } from "./pages/Home";
+import { Home } from "./pages/PersonalHome";
+const EventsPage = lazy(() => import("./pages/EventsPage").then(m => ({ default: m.EventsPage })));
 
 // Lazy loaded page components
 const VideoEditingPage = lazy(() => import("./pages/VideoEditingPage").then(m => ({ default: m.VideoEditingPage })));
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="events" element={<EventsPage />} />
           <Route path="web-design" element={<WebDesignPage />} />
           <Route path="video-editing" element={<VideoEditingPage />} />
           <Route path="portfolio" element={<PortfolioPage />} />

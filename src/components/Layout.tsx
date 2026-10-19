@@ -1,4 +1,5 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { HomeLayout } from "./HomeLayout";
 import { Header } from "./Header";
 import { Glow } from "./Glow";
 import { ScrollToTop } from "./ScrollToTop";
@@ -8,7 +9,9 @@ import { Suspense } from "react";
 import { useLanguage } from "../contexts/useLanguage";
 
 export function Layout() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { pathname } = useLocation();
+  if (pathname === "/" || pathname === "/events") return <HomeLayout />;
   const whatsappMessage = encodeURIComponent(t.home.finalCta.message);
 
   return (
@@ -60,7 +63,7 @@ export function Layout() {
                 href="mailto:ejgerdler@gmail.com" 
                 className="text-brand-green hover:text-brand-green/80 transition-colors"
               >
-                Email
+                {language === "es" ? "Correo" : "Email"}
               </a>
             </div>
           </div>
@@ -76,7 +79,7 @@ export function Layout() {
         rel="noopener noreferrer"
         onClick={() => trackConversion("whatsapp_click", { cta_location: "mobile_floating" })}
         aria-label={t.common.whatsappFloatLabel}
-        className="group fixed bottom-5 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-brand-green px-4 text-sm font-black text-brand-bg shadow-[0_0_28px_rgba(184,241,43,.35)] transition-all duration-300 ease-out active:scale-95 hover:scale-[1.03] hover:shadow-[0_0_32px_rgba(184,241,43,.5)] md:hidden"
+        className="group fixed bottom-5 right-4 z-50 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-brand-green px-4 text-sm font-black text-brand-bg shadow-[0_0_28px_rgba(184,241,43,.35)] transition-all duration-300 ease-out active:scale-95 hover:scale-[1.03] hover:shadow-[0_0_32px_rgba(184,241,43,.5)]"
       >
         <WhatsAppIcon className="h-5 w-5 transition-transform duration-300 ease-out group-hover:scale-110 group-active:scale-90" />
         <span>{t.common.whatsappFloat}</span>

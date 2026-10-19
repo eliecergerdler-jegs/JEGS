@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { ArrowUp } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { useLanguage } from "../contexts/useLanguage";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
   const { hash, pathname } = useLocation();
+  const { language } = useLanguage();
+  const isHomeLayout = pathname === "/" || pathname === "/events";
 
   useEffect(() => {
     if (hash) {
@@ -27,24 +30,26 @@ export function ScrollToTop() {
       }
     };
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
+    const frame = requestAnimationFrame(toggleVisibility);
+    return () => { window.removeEventListener("scroll", toggleVisibility); cancelAnimationFrame(frame); };
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
     });
   };
 
+  if (!isVisible) return null;
   return (
     <button
+      type="button"
       onClick={scrollToTop}
-      className={`fixed bottom-5 left-4 md:left-auto md:right-5 md:bottom-5 z-40 flex h-10 w-10 md:h-12 md:w-12 cursor-pointer items-center justify-center rounded-full border border-white/10 bg-brand-bg2/80 text-brand-white backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-all duration-300 hover:border-brand-green hover:text-brand-green hover:scale-110 active:scale-95 hover:shadow-[0_0_20px_rgba(184,241,43,0.25)] ${
-        isVisible ? "opacity-100 translate-y-0 pointer-events-auto scale-100" : "opacity-0 translate-y-5 pointer-events-none scale-50"
-      }`}
-      aria-label="Volver arriba"
+      className={isHomeLayout ? "back-to-top" : "fixed bottom-20 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full border border-brand-green/50 bg-brand-bg2 text-brand-green shadow-lg hover:border-brand-green"}
+      aria-label={language === "es" ? "Volver arriba" : "Back to top"}
+      title={language === "es" ? "Volver arriba" : "Back to top"}
     >
       <ArrowUp size={20} />
     </button>

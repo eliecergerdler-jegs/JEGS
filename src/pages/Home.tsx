@@ -214,8 +214,8 @@ export function ServiceCard({ service }: { service: ServiceType }) {
   const Icon = service.icon;
   const { language } = useLanguage();
   return (
-    <div className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] text-brand-white shadow-none transition hover:border-brand-blue/40 hover:bg-white/[0.055] p-6 md:p-8">
-      <div className="mb-6 grid h-14 w-14 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green shadow-[0_0_24px_rgba(30,123,255,.16)] transition group-hover:scale-110">
+    <div className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] text-brand-white shadow-none transition-colors hover:border-brand-green focus-within:border-brand-green p-6 md:p-8">
+      <div className="mb-6 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-brand-blue/15 text-brand-muted transition-colors group-hover:border-brand-green group-hover:text-brand-green group-focus-within:border-brand-green group-focus-within:text-brand-green">
         {Icon && <Icon size={26} />}
       </div>
       <h3 className="text-xl font-black">{service.title}</h3>

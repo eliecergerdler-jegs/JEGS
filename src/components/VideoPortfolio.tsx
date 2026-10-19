@@ -188,7 +188,7 @@ function CompactVideoTile({ project, onPlay }: { project: VideoPortfolioProject;
         <button
           type="button"
           onClick={() => onPlay(project)}
-          className={`${interaction.interactiveAccentClassName} absolute left-3 top-3 grid h-10 w-10 place-items-center rounded-xl border border-white/15 bg-brand-bg/75 text-brand-green backdrop-blur-md transition hover:border-brand-green/60 hover:bg-brand-green hover:text-brand-bg`}
+          className={`${interaction.interactiveIconClassName} absolute left-3 top-3 grid h-10 w-10 place-items-center rounded-xl border border-white/15 bg-brand-bg/75 text-brand-green backdrop-blur-md transition hover:border-brand-green`}
           aria-label={t.videoPortfolio.playLabel.replace("{title}", title)}
         >
           <Play size={16} fill="currentColor" aria-hidden="true" />
@@ -317,7 +317,7 @@ function VerticalPortfolioProject({ project, onPlay }: { project: VideoPortfolio
         <button
           type="button"
           onClick={() => onPlay(project)}
-          className={`${interaction.interactiveAccentClassName} absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-2xl border border-white/15 bg-brand-bg/75 text-brand-green backdrop-blur-md transition hover:border-brand-green/60 hover:bg-brand-green hover:text-brand-bg focus-visible:outline-brand-green`}
+          className={`${interaction.interactiveIconClassName} absolute left-4 top-4 grid h-11 w-11 place-items-center rounded-2xl border border-white/15 bg-brand-bg/75 text-brand-green backdrop-blur-md transition hover:border-brand-green focus-visible:outline-brand-green`}
           aria-label={t.videoPortfolio.playLabel.replace("{title}", title)}
         >
           <Play size={18} fill="currentColor" aria-hidden="true" />

@@ -13,7 +13,7 @@ import { usePageMeta } from "../hooks/usePageMeta";
 
 export function PortfolioPage() {
   const { language } = useLanguage();
-  const [filter, setFilter] = useState<"all" | "web" | "video">("all");
+  const [filter, setFilter] = useState<"all" | "web" | "video">(() => new URLSearchParams(window.location.search).get("type") === "web" ? "web" : "all");
   const isEs = language === "es";
   usePageMeta(isEs ? "Portafolio" : "Portfolio", isEs ? "Trabajos seleccionados de diseño web y edición de video de JEGS Digital." : "Selected web design and video editing work from JEGS Digital.");
 
@@ -23,13 +23,13 @@ export function PortfolioPage() {
         <p className="text-xs font-black uppercase tracking-[.3em] text-brand-green">JEGS Digital</p>
         <h1 className="mt-4 text-4xl font-black tracking-tight text-brand-white md:text-6xl">{isEs ? "Nuestro trabajo" : "Our Work"}</h1>
         <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-brand-muted">{isEs ? "Experiencias digitales y contenido audiovisual creados para comunicar con claridad." : "Digital experiences and audiovisual content created to communicate with clarity."}</p>
-        <div className="mt-8 flex flex-wrap justify-center gap-2" aria-label="Portfolio categories">
-          {(["all", "web", "video"] as const).map(item => <button key={item} type="button" aria-pressed={filter === item} onClick={() => setFilter(item)} className={`rounded-xl px-4 py-2 text-sm font-bold transition ${filter === item ? "bg-brand-green text-brand-bg" : "border border-white/10 bg-white/5 text-brand-white"}`}>{item === "all" ? "All" : item === "web" ? "Web Design" : "Video Editing"}</button>)}
+        <div className="mt-8 flex flex-wrap justify-center gap-2" aria-label={isEs ? "Categorías del portafolio" : "Portfolio categories"}>
+          {(["all", "web", "video"] as const).map(item => <button key={item} type="button" aria-pressed={filter === item} onClick={() => setFilter(item)} className={`rounded-xl px-4 py-2 text-sm font-bold transition ${filter === item ? "bg-brand-green text-brand-bg" : "border border-white/10 bg-white/5 text-brand-white"}`}>{item === "all" ? (isEs ? "Todos" : "All") : item === "web" ? (isEs ? "Diseño web" : "Web Design") : (isEs ? "Edición de video" : "Video Editing")}</button>)}
         </div>
       </section>
-      {(filter === "all" || filter === "web") && <Section id="web-portfolio" eyebrow="Web Design" title={isEs ? "Proyectos web" : "Web projects"} className="py-12"><PortfolioGrid /></Section>}
-      {(filter === "all" || filter === "video") && <Section id="video-portfolio" eyebrow="Video Editing" title={isEs ? "Proyectos de video" : "Video projects"} subtitle={isEs ? "Una selección de piezas en formatos verticales y horizontales." : "A selection of work in vertical and horizontal formats."} className="py-12"><VideoPortfolioShowcase /></Section>}
-      <section className="px-5 pb-16"><div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 text-center sm:flex-row"><Link className="text-sm font-black text-brand-green" to="/web-design" onClick={() => trackConversion("portfolio_click", { destination: "web-design" })}>View Web Design Services</Link><Link className="text-sm font-black text-brand-green" to="/video-editing" onClick={() => trackConversion("portfolio_click", { destination: "video-editing" })}>View Video Editing Services</Link><Link className="text-sm font-black text-brand-green" to="/contact" onClick={() => trackConversion("portfolio_click", { destination: "contact" })}>Contact Us</Link></div></section>
+      {(filter === "all" || filter === "web") && <Section id="web-portfolio" eyebrow={isEs ? "Diseño web" : "Web Design"} title={isEs ? "Proyectos web" : "Web projects"} className="py-12"><PortfolioGrid /></Section>}
+      {(filter === "all" || filter === "video") && <Section id="video-portfolio" eyebrow={isEs ? "Edición de video" : "Video Editing"} title={isEs ? "Proyectos de video" : "Video projects"} subtitle={isEs ? "Una selección de piezas en formatos verticales y horizontales." : "A selection of work in vertical and horizontal formats."} className="py-12"><VideoPortfolioShowcase /></Section>}
+      <section className="px-5 pb-16"><div className="mx-auto flex max-w-7xl flex-col items-center justify-center gap-3 rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 text-center sm:flex-row"><Link className="text-sm font-black text-brand-green" to="/web-design" onClick={() => trackConversion("portfolio_click", { destination: "web-design" })}>{isEs ? "Ver servicios de diseño web" : "View Web Design Services"}</Link><Link className="text-sm font-black text-brand-green" to="/video-editing" onClick={() => trackConversion("portfolio_click", { destination: "video-editing" })}>{isEs ? "Ver servicios de edición de video" : "View Video Editing Services"}</Link><Link className="text-sm font-black text-brand-green" to="/contact" onClick={() => trackConversion("portfolio_click", { destination: "contact" })}>{isEs ? "Contactar" : "Contact Us"}</Link></div></section>
     </>
   );
 }
@@ -124,8 +124,6 @@ export function ContactPage() {
   );
 }
 
-import { motion } from "framer-motion";
-
 interface ContactCardProps {
   icon: React.ComponentType<{ size?: number }>;
   title: string;
@@ -142,18 +140,14 @@ function ContactCard({ icon: Icon, title, text, cta, href, onClick }: ContactCar
       href={href}
       onClick={onClick}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-blue/20 hover:border-brand-blue/50 hover:bg-white/[0.055]"
+      className="group rounded-[2rem] border border-white/10 bg-white/[0.035] p-7 text-center transition-colors hover:border-brand-green focus-visible:border-brand-green"
     >
-      <motion.div 
-        className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-brand-blue/15 text-brand-green shadow-lg"
-        whileHover={{ rotateY: 180, scale: 1.1 }}
-        transition={{ duration: 0.6, type: "spring" }}
-      >
+      <div className="mx-auto mb-5 grid h-14 w-14 place-items-center rounded-2xl border border-white/10 bg-brand-blue/15 text-brand-muted transition-colors group-hover:border-brand-green group-hover:text-brand-green group-focus-visible:border-brand-green group-focus-visible:text-brand-green">
         <Icon size={24} />
-      </motion.div>
+      </div>
       <h3 className="text-xl font-black text-brand-white">{title}</h3>
       <p className="mt-2 text-brand-muted">{text}</p>
-      <p className="mt-5 inline-flex items-center gap-2 text-sm font-black text-brand-green transition-transform group-hover:translate-x-1">
+      <p className="mt-5 inline-flex items-center gap-2 text-sm font-black text-brand-green">
         {cta} <ArrowRight size={16} />
       </p>
     </a>
