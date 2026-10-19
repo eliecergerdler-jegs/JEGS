@@ -1,10 +1,22 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+const projectRoot = fileURLToPath(new URL('.', import.meta.url))
+
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(projectRoot, 'index.html'),
+        card: resolve(projectRoot, 'card.html'),
+      },
+    },
+  },
   plugins: [
     react(),
     tailwindcss(),
@@ -106,7 +118,7 @@ export default defineConfig({
             },
           },
           {
-            urlPattern: /\/(favicon-jegs-v2\.svg|favicon-jegs-v2-(192|512)\.png|apple-touch-icon-jegs-v2\.png|Imagenes\/og-image-v1\.png)$/i,
+            urlPattern: /\/(favicon-jegs-v2\.svg|favicon-jegs-v2-(192|512)\.png|apple-touch-icon-jegs-v2\.png|Imagenes\/(og-image-v1|card-og)\.png)$/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'jegs-brand-assets',

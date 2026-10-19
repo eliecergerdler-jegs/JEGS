@@ -9,6 +9,7 @@ import { usePageMeta } from "../hooks/usePageMeta";
 import { homeQuoteMessage, useHomeQuote } from "../hooks/useHomeQuote";
 import type { HomeService } from "../hooks/useHomeQuote";
 import { trackConversion } from "../lib/analytics";
+import { siShopify, siWordpress } from "simple-icons";
 
 const services: HomeService[] = ["shopify", "wordpress", "react", "video", "design", "events"];
 const categories = ["web", "video", "events"] as const;
@@ -16,7 +17,8 @@ const categories = ["web", "video", "events"] as const;
 interface ServiceCard {
   id: HomeService;
   number: string;
-  icon: string;
+  icon?: string;
+  brand?: "shopify" | "wordpress";
   title: string;
   text: string;
   tags: string[];
@@ -37,8 +39,8 @@ export function Home() {
   const whatsapp = `https://wa.me/584125738257?text=${encodeURIComponent(homeQuoteMessage(language, quote))}`;
   const workDestination = category === "web" ? "/portfolio?type=web" : category === "video" ? "/video-editing" : "/events";
   const cards: ServiceCard[] = [
-    { id: "shopify", number: "01 / SHOPIFY", icon: "↗", title: c.shopifytitle, text: c.shopifyp, tags: ["Shopify", "Liquid"], list: [c.shopify1, c.shopify2, c.shopify3], cta: c.shopifycta },
-    { id: "wordpress", number: "02 / WORDPRESS", icon: "W", title: c.wordpresstitle, text: c.wordpressp, tags: ["WordPress"], list: [c.wordpress1, c.wordpress2, c.wordpress3], cta: c.wordpresscta },
+    { id: "shopify", number: "01 / SHOPIFY", brand: "shopify", title: c.shopifytitle, text: c.shopifyp, tags: ["Shopify", "Liquid"], list: [c.shopify1, c.shopify2, c.shopify3], cta: c.shopifycta },
+    { id: "wordpress", number: "02 / WORDPRESS", brand: "wordpress", title: c.wordpresstitle, text: c.wordpressp, tags: ["WordPress"], list: [c.wordpress1, c.wordpress2, c.wordpress3], cta: c.wordpresscta },
     { id: "react", number: "03 / REACT", icon: "</>", title: c.webtitle, text: c.webp, tags: ["React", "TypeScript"], list: [c.web1, c.web2, c.web3], cta: c.webcta },
   ];
   const complementaryCards: ServiceCard[] = [
@@ -47,7 +49,8 @@ export function Home() {
   ];
   const renderCard = (card: ServiceCard) => {
     const portfolio = card.portfolio;
-    return <article className="service" key={card.id}><div className="service-main"><span className="number">{card.number}</span><div className="service-icon" aria-hidden="true">{card.icon}</div><h3><HomeText text={card.title} /></h3><p>{card.text}</p><div className="tags">{card.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}</div></div><div className="service-details"><ul>{card.list.map(item => <li key={item}>{item}</li>)}</ul></div><div className="service-links"><Link className="text-link" to="/#contact" onClick={() => { setQuote(value => ({ ...value, service: card.id })); trackConversion("quote_cta_click", { service: card.id, cta_location: "home_service" }); }}>{card.cta} <span aria-hidden="true">↗</span></Link>{portfolio && <Link className="text-link" to={portfolio.path} onClick={() => trackConversion("portfolio_click", { destination: portfolio.path, cta_location: "home_complementary_service" })}>{portfolio.label} <span aria-hidden="true">↗</span></Link>}</div></article>;
+    const brandIcon = card.brand === "shopify" ? siShopify : card.brand === "wordpress" ? siWordpress : null;
+    return <article className="service" key={card.id}><div className="service-main"><span className="number">{card.number}</span><div className={`service-icon${card.brand ? ` service-icon--${card.brand}` : ""}`} aria-hidden="true">{brandIcon ? <svg viewBox="0 0 24 24" focusable="false"><path d={brandIcon.path} /></svg> : card.icon}</div><h3><HomeText text={card.title} /></h3><p>{card.text}</p><div className="tags">{card.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}</div></div><div className="service-details"><ul>{card.list.map(item => <li key={item}>{item}</li>)}</ul></div><div className="service-links"><Link className="text-link" to="/#contact" onClick={() => { setQuote(value => ({ ...value, service: card.id })); trackConversion("quote_cta_click", { service: card.id, cta_location: "home_service" }); }}>{card.cta} <span aria-hidden="true">↗</span></Link>{portfolio && <Link className="text-link" to={portfolio.path} onClick={() => trackConversion("portfolio_click", { destination: portfolio.path, cta_location: "home_complementary_service" })}>{portfolio.label} <span aria-hidden="true">↗</span></Link>}</div></article>;
   };
   usePageMeta(c.title.replace(" | JEGS Digital", ""), c.description);
   return <>
