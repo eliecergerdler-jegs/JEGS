@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#050816"/><stop offset=".58" stop-color="#09172a"/><stop offset="1" stop-color="#07101c"/></linearGradient>
+    <radialGradient id="blue"><stop stop-color="#1e7bff" stop-opacity=".36"/><stop offset="1" stop-color="#1e7bff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fade" x1="0" x2="1"><stop stop-color="#050816"/><stop offset=".45" stop-color="#050816" stop-opacity=".84"/><stop offset="1" stop-color="#050816" stop-opacity="0"/></linearGradient>
+    <linearGradient id="line" x1="0" x2="1"><stop stop-color="#1e7bff" stop-opacity="0"/><stop offset=".55" stop-color="#56b5ff"/><stop offset="1" stop-color="#b8f12b" stop-opacity="0"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#75baff" stroke-opacity=".09" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/><ellipse cx="875" cy="260" rx="400" ry="340" fill="url(#blue)"/>
+  <rect x="590" width="610" height="630" fill="url(#grid)" opacity=".8"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#fade)"/>
+  <path d="M0 503 134 465l102 20 135-93 86 42 128-75 80 51 102-35 77 41 121-95 101 77 134-34v266H0Z" fill="#060d18" stroke="#2374c7" stroke-opacity=".55"/>
+  <path d="m0 516 143-39 95 24 137-95 83 42 130-78 82 50 100-32 78 35 120-93 103 74 124-31 105 33" fill="none" stroke="#55aaff" stroke-opacity=".68" stroke-width="2"/>
+  <path d="M60 485H530" stroke="url(#line)" stroke-width="2"/>
+  <circle cx="85" cy="83" r="22" fill="none" stroke="#1e7bff" stroke-width="2"/><path d="m71 84 11 11 19-23" fill="none" stroke="#b8f12b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="125" y="91" fill="#f4f8ff" font-family="Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="4">JEGS DIGITAL</text>
+  <text x="80" y="282" fill="#d1dfef" font-family="Arial, sans-serif" font-size="24" letter-spacing="6">WEB IDEAS · RESULTS</text>
+  <text x="76" y="376" fill="#f4f8ff" font-family="Arial, sans-serif" font-size="72" font-weight="700" letter-spacing="-3">Eliecer Gerdler</text>
+  <text x="82" y="426" fill="#b8f12b" font-family="Arial, sans-serif" font-size="27" font-weight="500">Web Developer | Digital Solutions</text>
+  <path d="M82 465H456" stroke="#1e7bff" stroke-opacity=".6"/>
+</svg>

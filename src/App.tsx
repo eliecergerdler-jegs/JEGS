@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { Home } from "./pages/PersonalHome";
@@ -11,11 +11,13 @@ const ProjectDetailPage = lazy(() => import("./pages/ProjectDetailPage").then(m 
 const ContactPage = lazy(() => import("./pages/OtherPages").then(m => ({ default: m.ContactPage })));
 const WebDesignPage = lazy(() => import("./pages/WebDesignPage").then(m => ({ default: m.WebDesignPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage").then(m => ({ default: m.NotFoundPage })));
+const DigitalCardPage = lazy(() => import("./pages/DigitalCardPage").then(m => ({ default: m.DigitalCardPage })));
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/card" element={<Suspense fallback={<div className="card-loading" role="status">JEGS Digital</div>}><DigitalCardPage /></Suspense>} />
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="events" element={<EventsPage />} />
